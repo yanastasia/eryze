@@ -241,17 +241,17 @@ export const projects: Project[] = [
     title: "Acting Europe",
     tagline: "Platform for discovering theatre events and cultural experiences",
     tags: ["Cultural Platform", "Next.js", "Content UX"],
-    status: "In Progress",
-    category: "Platform",
+    status: "Ongoing Client Work",
+    category: "Client",
     featured: true,
     order: 4,
     hero: {
       description: "A modern platform for exploring theatre events and venues across Europe",
     },
     overview: {
-      who: "Cultural audiences and theatre organizers",
-      what: "Platform for browsing and showcasing theatre events",
-      role: "Full-stack development and product design",
+      who: "Cultural organization, theatre audiences, and event contributors",
+      what: "Client platform for browsing and showcasing theatre events and venues",
+      role: "Product design, full-stack development, and delivery structure",
     },
     problem: [
       "Theatre content is fragmented across multiple sources",

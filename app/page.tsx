@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CapabilityCard } from "@/components/site/capability-card";
 import { ContentGrid } from "@/components/site/content-grid";
 import { CTABlock } from "@/components/site/cta-block";
-import { PageHero } from "@/components/site/page-hero";
+import { HomeHero } from "@/components/site/home-hero";
 import { PrincipleCard } from "@/components/site/principle-card";
 import { ProjectGrid } from "@/components/site/project-grid";
 import { Section } from "@/components/site/section";
@@ -21,37 +21,7 @@ export const metadata = createPageMetadata({
 export default function HomePage() {
   return (
     <>
-      <PageHero
-        actions={[
-          { href: "/work", label: "View Work" },
-          { href: "/contact", label: "Get in Touch", variant: "outline" },
-        ]}
-        description="Founder-led studio for websites, platforms, and internal systems that need clear structure."
-        eyebrow="Eryze Studio"
-        highlights={[
-          "Websites that explain the offer fast",
-          "Platforms built for real operating use",
-          "Internal tools that reduce manual friction",
-        ]}
-        title="Modern digital products, websites, and internal systems built with product discipline."
-      >
-        <div className="grid w-full gap-4">
-          <article className="rounded-[1.5rem] border border-border bg-background/70 p-5">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-brand-accent">Best fit</p>
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-foreground">
-              <li>Founder-led launches that need a credible first digital presence</li>
-              <li>Platforms with multiple audiences, workflows, or content states</li>
-              <li>Teams replacing fragmented internal processes with a cleaner system</li>
-            </ul>
-          </article>
-          <article className="rounded-[1.5rem] border border-border bg-background/70 p-5">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-brand-accent">Next step</p>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">
-              Review selected work or send a short project brief.
-            </p>
-          </article>
-        </div>
-      </PageHero>
+      <HomeHero />
 
       <Section
         description="A compact product team that defines the structure and ships the build."

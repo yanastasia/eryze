@@ -1,4 +1,4 @@
-export type ProjectStatus = "Ongoing" | "Near Launch" | "In Progress";
+export type ProjectStatus = "Ongoing" | "Near Launch" | "In Progress" | "Ongoing Client Work";
 
 export type ProjectBuiltBlock = {
   title: string;
