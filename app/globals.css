@@ -1,15 +1,13 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-header: var(--font-header);
-  --font-alt: var(--font-alt);
+  --color-brand-accent: var(--brand-accent);
+  --font-sans: var(--font-body-family);
+  --font-mono: var(--font-mono-family);
+  --font-display: var(--font-display-family);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -46,102 +44,62 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --font-header: other, system-ui, sans-serif;
-  /* Eryze brand: off-white bg, navy fg */
-  --background: #E2E8F0;
-  --foreground: #101B37;
-  --card: #FFFFFF;
-  --card-foreground: #101B37;
-  --popover: #FFFFFF;
-  --popover-foreground: #101B37;
-  --primary: #101B37;          /* navy */
-  --primary-foreground: #F8FAFC;
-  --secondary: #79CFFF;        /* sky blue */
-  --secondary-foreground: #101B37;
-  --muted: #EEF2F7;
-  --muted-foreground: #334155;
-  --accent: #9B5FFF;           /* Vibrant Cosmic Purple */
-  --accent-foreground: #101B37;
-  --destructive: #ef4444;
-  --border: #E5E7EB;
-  --input: #E5E7EB;
-  --ring: #93C5FD;
-  /* Map accent (SEE map pins/glow) */
-  --mapaccent: #79CFFF;
-  /* charts not critical now; keep tasteful defaults */
-  --chart-1: #79CFFF;
-  --chart-2: #101B37;
-  --chart-3: #9B5FFF;
-  --chart-4: #B77CFF;
-  --chart-5: #0EA5E9;
-  --sidebar: #F8FAFC;
-  --sidebar-foreground: #101B37;
-  --sidebar-primary: #101B37;
-  --sidebar-primary-foreground: #F8FAFC;
-  --sidebar-accent: #79CFFF;
-  --sidebar-accent-foreground: #101B37;
-  --sidebar-border: #E5E7EB;
-  --sidebar-ring: #93C5FD;
-}
-
-.dark {
-  --background: #0B1220;       /* Deep Space Navy */
-  --foreground: #D3D8E0;       /* Cosmic Gray */
-  --card: #1C2433;             /* Graphite surface */
-  --card-foreground: #D3D8E0;
-  --popover: #1C2433;
-  --popover-foreground: #D3D8E0;
-  --primary: #D3D8E0;
-  --primary-foreground: #0B1220;
-  --secondary: #79CFFF;        /* Sky Blue */
-  --secondary-foreground: #0B1220;
-  --muted: #1C2433;
-  --muted-foreground: #8B94A3; /* Dim Gray */
-  --accent: #9B5FFF;           /* Vibrant Cosmic Purple */
-  --accent-foreground: #0B1220;
-  --destructive: #ef4444;
-  --border: #303B4E;           /* Lunar Gray */
-  --input: #303B4E;
-  --ring: #79CFFF;
-  /* Map accent (SEE map pins/glow) */
-  --mapaccent: #79CFFF;
-  --chart-1: #79CFFF;
-  --chart-2: #9B5FFF;
-  --chart-3: #B77CFF;
-  --chart-4: #D3D8E0;
-  --chart-5: #93C5FD;
-  --sidebar: #0B1220;
-  --sidebar-foreground: #D3D8E0;
-  --sidebar-primary: #79CFFF;
-  --sidebar-primary-foreground: #0B1220;
-  --sidebar-accent: #9B5FFF;
-  --sidebar-accent-foreground: #0B1220;
-  --sidebar-border: #303B4E;
-  --sidebar-ring: #79CFFF;
-}
-
-/* Accent gradient utility for studio glow */
-.accent-gradient {
-  background-image: linear-gradient(135deg, #9B5FFF 0%, #B77CFF 100%);
-}
-
-/* Brand highlight gradient utility (purple → blue → gray) */
-.brand-gradient {
-  background-image: linear-gradient(135deg, #9B5FFF 0%, #79CFFF 60%, #D3D8E0 100%);
+  --radius: 1rem;
+  --background: #f5f4ef;
+  --foreground: #172033;
+  --card: rgba(255, 255, 255, 0.8);
+  --card-foreground: #172033;
+  --popover: #ffffff;
+  --popover-foreground: #172033;
+  --primary: #172033;
+  --primary-foreground: #f7f7f3;
+  --secondary: #dce9e2;
+  --secondary-foreground: #172033;
+  --muted: #ebe8df;
+  --muted-foreground: #566174;
+  --accent: #d8b15f;
+  --accent-foreground: #172033;
+  --destructive: #b42318;
+  --border: rgba(23, 32, 51, 0.12);
+  --input: rgba(23, 32, 51, 0.12);
+  --ring: rgba(216, 177, 95, 0.45);
+  --chart-1: #172033;
+  --chart-2: #d8b15f;
+  --chart-3: #8ea4b0;
+  --chart-4: #dce9e2;
+  --chart-5: #6b7c63;
+  --sidebar: #f7f7f3;
+  --sidebar-foreground: #172033;
+  --sidebar-primary: #172033;
+  --sidebar-primary-foreground: #f7f7f3;
+  --sidebar-accent: #dce9e2;
+  --sidebar-accent-foreground: #172033;
+  --sidebar-border: rgba(23, 32, 51, 0.12);
+  --sidebar-ring: rgba(216, 177, 95, 0.45);
+  --brand-accent: #916c22;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
 
-@keyframes underline {
-  0% { text-decoration-color: transparent; }
-  50% { text-decoration-color: currentColor; }
-  100% { text-decoration-color: transparent; }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground;
+    background-image:
+      radial-gradient(circle at top left, rgba(216, 177, 95, 0.12), transparent 28%),
+      radial-gradient(circle at top right, rgba(142, 164, 176, 0.14), transparent 28%);
+  }
+
+  a {
+    @apply outline-none;
+  }
+
+  ::selection {
+    background: rgba(216, 177, 95, 0.28);
+  }
 }

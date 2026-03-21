@@ -1,57 +1,59 @@
 import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
-import Link from "next/link";
-import "./globals.css";
-import Header from "@/components/Header";
-import ThemeProvider from "@/components/ThemeProvider";
+import { IBM_Plex_Mono, Manrope, Space_Grotesk } from "next/font/google";
 
-const bodyFont = Inter({
-  variable: "--font-body",
+import "./globals.css";
+
+import { SiteFooter } from "@/components/site/site-footer";
+import { SiteHeader } from "@/components/site/site-header";
+import { siteConfig } from "@/content/site";
+
+const bodyFont = Manrope({
   subsets: ["latin"],
+  variable: "--font-body-family",
 });
 
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const displayFont = Space_Grotesk({
   subsets: ["latin"],
+  variable: "--font-display-family",
+});
+
+const monoFont = IBM_Plex_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono-family",
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://eryze.io"),
+  metadataBase: new URL(siteConfig.baseUrl),
   title: {
-    default: "Eryze Studio - Innovation in Motion",
-    template: "%s - Eryze Studio",
+    default: siteConfig.defaultTitle,
+    template: "%s | Eryze Studio",
   },
-  description:
-    "Rise above the ordinary. Build what moves the world.",
+  description: siteConfig.defaultDescription,
   keywords: [
-    "Eryze",
-    "Anastasia Yakimovska",
-    "portfolio",
-    "engineering",
-    "semiconductor",
-    "design",
-    "product management",
-    "startup",
-    "Southeast Europe",
-    "innovation",
+    "Eryze Studio",
+    "digital product studio",
+    "portfolio website",
+    "web development",
+    "internal systems",
+    "automation-driven platforms",
+    "founder-led studio",
   ],
-  authors: [{ name: "Eryze Studio" }],
+  authors: [{ name: siteConfig.name }],
   alternates: {
     canonical: "/",
   },
   openGraph: {
+    title: siteConfig.defaultTitle,
+    description: siteConfig.defaultDescription,
+    siteName: siteConfig.name,
     type: "website",
-    siteName: "Eryze Studio",
-    title: "Eryze Studio - Innovation in Motion",
-    description: "Rise above the ordinary. Build what moves the world.",
     url: "/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Eryze Studio - Innovation in Motion",
-    description: "Rise above the ordinary. Build what moves the world.",
-    creator: "@eryze",
+    title: siteConfig.defaultTitle,
+    description: siteConfig.defaultDescription,
   },
   robots: {
     index: true,
@@ -65,30 +67,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" style={{ colorScheme: "dark" }} suppressHydrationWarning>
-      <body className={`${bodyFont.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider>
-          <Header />
-          <main className="min-h-screen">
-            {children}
-          </main>
-          <footer className="border-t border-border py-8 text-sm">
-          <div className="mx-auto max-w-6xl px-6 grid gap-4 md:grid-cols-3 items-center">
-            <div className="text-muted-foreground">© 2025 Eryze Studio - Built with clarity and motion.</div>
-            <nav className="flex justify-center gap-6">
-              <Link href="/#about" className="underline decoration-dashed [animation:underline_6s_linear_infinite]">About</Link>
-              <Link href="/#services" className="underline decoration-dashed [animation:underline_6s_linear_infinite]">Studio</Link>
-              <Link href="/labs" className="underline decoration-dashed [animation:underline_6s_linear_infinite]">Labs</Link>
-              <Link href="/contact" className="underline decoration-dashed [animation:underline_6s_linear_infinite]">Contact</Link>
-            </nav>
-            <div className="flex justify-end gap-4 text-muted-foreground">
-              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="https://www.behance.net/" target="_blank" rel="noreferrer">Behance</a>
-            </div>
-          </div>
-          </footer>
-        </ThemeProvider>
+    <html lang="en">
+      <body className={`${bodyFont.variable} ${displayFont.variable} ${monoFont.variable} antialiased`}>
+        <div className="flex min-h-screen flex-col">
+          <SiteHeader />
+          <main className="flex-1">{children}</main>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

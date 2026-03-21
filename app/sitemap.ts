@@ -1,21 +1,17 @@
 import type { MetadataRoute } from "next";
 
+import { projects } from "@/data/projects";
+import { siteConfig } from "@/content/site";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://eryze.io";
-  const routes = [
-    "/",
-    "/anastasia",
-    "/labs",
-    "/insights",
-    "/events",
-    "/contact",
-    "/work",
-  ];
+  const routes = ["/", "/studio", "/work", "/about", "/contact"];
+  const projectRoutes = projects.map((project) => `/work/${project.slug}`);
   const now = new Date();
-  return routes.map((path) => ({
-    url: `${base}${path}`,
+
+  return [...routes, ...projectRoutes].map((path) => ({
+    url: `${siteConfig.baseUrl}${path}`,
     lastModified: now,
-    changeFrequency: "weekly",
-    priority: path === "/" ? 1 : 0.7,
+    changeFrequency: path.startsWith("/work/") ? "monthly" : "weekly",
+    priority: path === "/" ? 1 : path === "/work" ? 0.9 : 0.7,
   }));
 }

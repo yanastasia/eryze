@@ -1,0 +1,16 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#162134"/>
+  <circle cx="956" cy="178" r="186" fill="#D8B15F" fill-opacity="0.18"/>
+  <circle cx="202" cy="706" r="214" fill="#84A8A1" fill-opacity="0.2"/>
+  <rect x="98" y="108" width="1004" height="684" rx="38" fill="#1B2940" stroke="#425169"/>
+  <rect x="168" y="190" width="864" height="52" rx="26" fill="#27354E"/>
+  <rect x="168" y="284" width="290" height="350" rx="30" fill="#D8B15F" fill-opacity="0.14"/>
+  <rect x="490" y="284" width="216" height="350" rx="30" fill="#85A8A2" fill-opacity="0.18"/>
+  <rect x="738" y="284" width="294" height="350" rx="30" fill="#BFC7D4" fill-opacity="0.14"/>
+  <rect x="168" y="666" width="864" height="44" rx="22" fill="#27354E"/>
+  <circle cx="312" cy="418" r="72" fill="#E4C98F" fill-opacity="0.8"/>
+  <circle cx="598" cy="418" r="72" fill="#9AB7B2" fill-opacity="0.84"/>
+  <circle cx="886" cy="418" r="72" fill="#D5DBE5" fill-opacity="0.84"/>
+  <text x="168" y="154" fill="#F5F4EF" font-family="Arial, sans-serif" font-size="34" font-weight="700">KidsGo</text>
+  <text x="168" y="760" fill="#B7C2CE" font-family="Arial, sans-serif" font-size="28">Built product with go-to-market in progress</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#131F31"/>
+  <circle cx="926" cy="182" r="206" fill="#D8B15F" fill-opacity="0.14"/>
+  <circle cx="234" cy="744" r="242" fill="#8DA4AF" fill-opacity="0.18"/>
+  <rect x="102" y="112" width="996" height="676" rx="40" fill="#19263B" stroke="#445168"/>
+  <rect x="176" y="188" width="848" height="52" rx="26" fill="#253248"/>
+  <rect x="176" y="286" width="272" height="430" rx="30" fill="#233146"/>
+  <rect x="478" y="286" width="246" height="210" rx="30" fill="#D8B15F" fill-opacity="0.16"/>
+  <rect x="756" y="286" width="268" height="210" rx="30" fill="#8EA4AF" fill-opacity="0.16"/>
+  <rect x="478" y="532" width="546" height="184" rx="30" fill="#233146"/>
+  <path d="M252 344H374" stroke="#C1CBD8" stroke-width="16" stroke-linecap="round"/>
+  <path d="M252 404H374" stroke="#738297" stroke-width="16" stroke-linecap="round"/>
+  <path d="M252 464H346" stroke="#738297" stroke-width="16" stroke-linecap="round"/>
+  <path d="M562 380H646" stroke="#F0D39B" stroke-width="16" stroke-linecap="round"/>
+  <path d="M840 380H922" stroke="#C9D4DC" stroke-width="16" stroke-linecap="round"/>
+  <path d="M554 588L638 628L736 592L838 644L944 580" stroke="#D8B15F" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="176" y="154" fill="#F5F4EF" font-family="Arial, sans-serif" font-size="34" font-weight="700">VC Ops</text>
+  <text x="176" y="750" fill="#B7C2CE" font-family="Arial, sans-serif" font-size="28">Internal systems and automation-aware venture workflows</text>
+</svg>
