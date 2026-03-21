@@ -74,35 +74,35 @@ export const capabilities: Capability[] = [
 export const homeServices: HomeService[] = [
   {
     label: "Websites",
-    title: "Positioning-led websites built to explain the offer clearly.",
+    title: "Websites that communicate the offer clearly and get delivered cleanly.",
     description:
-      "Marketing sites and launch pages designed to communicate value quickly and turn attention into qualified conversations.",
+      "Marketing sites and launch pages that communicate your offer clearly — scoped properly upfront, built to spec, and delivered without back-and-forth that eats your time.",
     details: [
-      "Messaging and page structure",
-      "Responsive design systems",
-      "Conversion-focused build quality",
+      "Scope and page structure defined upfront",
+      "Responsive implementation built to spec",
+      "Clear review points without process drag",
     ],
   },
   {
     label: "Platforms",
-    title: "Client and product platforms shaped around real user flows.",
+    title: "Platforms built around real user flows and long-term clarity.",
     description:
-      "Structured interfaces for discovery, coordination, booking, publishing, and other multi-step product experiences.",
+      "Structured product interfaces built around real user flows. We map the logic before touching code, flag decisions when they need your input, and build on foundations that hold up after launch.",
     details: [
-      "User-facing product flows",
-      "Content and operations layers",
-      "Clean front-end architecture",
+      "Logic mapped before implementation starts",
+      "Key decisions surfaced at the right time",
+      "Foundations that hold after launch",
     ],
   },
   {
     label: "Systems",
-    title: "Internal tools and automation that simplify recurring work.",
+    title: "Systems that reduce manual work without overbuilding the solution.",
     description:
-      "Operational systems built to reduce manual effort, improve clarity, and support the teams using them day to day.",
+      "Internal tools and automation that reduce manual work and create clarity. Scoped to what actually needs to exist — not overbuilt for a future that may never arrive.",
     details: [
-      "Internal workflow tools",
-      "Automation where it adds value",
-      "Maintainable implementation",
+      "Operational clarity for recurring workflows",
+      "Automation applied where it earns its place",
+      "Lean scope with maintainable delivery",
     ],
   },
 ];
@@ -116,24 +116,24 @@ export const idealProjectTypes = [
 
 export const processSteps: ProcessStep[] = [
   {
-    title: "Frame the opportunity",
+    title: "Scope before anything else",
     description:
-      "Clarify the audience, the workflow, and the business constraints before design or development starts.",
+      "Every project starts with a structured brief and a defined scope. We ask the right questions, identify the constraints, and agree on what is being built before design or development starts. Nothing is assumed.",
   },
   {
-    title: "Shape the system",
+    title: "Structure that holds",
     description:
-      "Turn positioning, content, and product logic into a lean structure that can scale without becoming fragile.",
+      "Architecture, flows, and content logic are defined and shared before building begins. You review the structure to confirm it reflects how the business actually works.",
   },
   {
-    title: "Build with focus",
+    title: "Regular updates, no chasing",
     description:
-      "Implement the most valuable surface area first with strong foundations, clear components, and pragmatic scope control.",
+      "You receive consistent progress updates throughout the build. Staging access is provided early, and if something needs your input, we surface it clearly and specifically.",
   },
   {
-    title: "Iterate after launch",
+    title: "Delivered and documented",
     description:
-      "Use real usage, feedback, and delivery learnings to refine the product instead of overbuilding up front.",
+      "Handover includes context, not just files. You understand what was built, how to manage it, and what comes next without needing to come back to us for answers that should have been included.",
   },
 ];
 

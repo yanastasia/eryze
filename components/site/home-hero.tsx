@@ -9,8 +9,8 @@ import { Container } from "@/components/site/container";
 import { Button } from "@/components/ui/button";
 
 const heroSignals = [
-  "Websites and launch surfaces",
-  "Client platforms and portals",
+  "Websites and launch pages",
+  "Platforms and client systems",
   "Internal tools and automation",
 ];
 
@@ -109,7 +109,11 @@ export function HomeHero() {
                 Eryze Studio
               </motion.p>
               <div className="mt-5 max-w-lg font-display text-5xl font-bold uppercase leading-[0.9] tracking-[-0.06em] text-[#8f61ff] sm:text-6xl lg:text-[5.4rem]">
-                {["Innovation", "in motion."].map((line, index) => (
+                {[
+                  "A development studio",
+                  "that runs the process",
+                  "so you don't have to.",
+                ].map((line, index) => (
                   <motion.span
                     key={line}
                     className="block"
@@ -127,7 +131,7 @@ export function HomeHero() {
                 animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
                 transition={{ delay: 0.24, duration: 0.58, ease: [0.22, 1, 0.36, 1] }}
               >
-                Development studio for websites, digital products, and internal tools built with clear structure and reliable execution.
+                Websites, platforms, and internal tools — delivered with structure, clear communication, and no surprises.
               </motion.p>
 
               <motion.div
@@ -196,7 +200,7 @@ export function HomeHero() {
                     <div className="max-w-xs">
                       <p className="text-xs font-medium uppercase tracking-[0.24em] text-brand-accent">Studio focus</p>
                       <p className="mt-3 text-sm leading-7 text-muted-foreground">
-                        Product websites, structured platforms, and internal systems with maintainable implementation.
+                        You bring the business context. Eryze brings the structure, execution, and delivery process.
                       </p>
                     </div>
 

@@ -51,22 +51,29 @@ export function SceneHeader({
 }
 
 export function PositioningStrip({
-  description,
+  paragraphs,
   title,
 }: {
-  description: string;
+  paragraphs: string[];
   title: string;
 }) {
   return (
     <section className="relative border-y border-border/60 py-20 sm:py-24">
       <Container>
         <MotionReveal>
-          <SceneHeader
-            align="center"
-            description={description}
-            eyebrow="Positioning"
-            title={title}
-          />
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="text-xs font-medium uppercase tracking-[0.28em] text-brand-accent sm:text-sm">
+              Studio
+            </p>
+            <h2 className="mt-4 text-balance font-display text-4xl leading-[0.95] text-foreground sm:text-5xl lg:text-6xl">
+              {title}
+            </h2>
+            <div className="mx-auto mt-8 max-w-3xl space-y-5 text-sm leading-7 text-muted-foreground sm:text-base">
+              {paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
         </MotionReveal>
       </Container>
     </section>
@@ -79,9 +86,9 @@ export function ServiceSequence({ services }: { services: HomeService[] }) {
       <Container>
         <MotionReveal>
           <SceneHeader
-            description="Support across public-facing websites, structured platforms, and internal systems."
+            description="Three areas of work, one standard: structured delivery with clear communication throughout."
             eyebrow="Services"
-            title="What Eryze works on"
+            title="Services"
           />
         </MotionReveal>
 
@@ -239,9 +246,9 @@ export function ProcessTimeline({ steps }: { steps: ProcessStep[] }) {
       <Container>
         <MotionReveal>
           <SceneHeader
-            description="A clear working process keeps projects focused from early direction through launch."
+            description="A clear process means fewer surprises, faster decisions, and work that lands right the first time."
             eyebrow="Process"
-            title="How the work moves forward"
+            title="How the work is run"
           />
         </MotionReveal>
 
@@ -301,15 +308,15 @@ export function FinalCTAScene() {
                 Final CTA
               </p>
               <h2 className="mt-4 text-balance font-display text-4xl leading-[0.95] text-foreground sm:text-5xl lg:text-6xl">
-                Planning a website, product, or internal tool?
+                Have a website, platform, or internal tool to build?
               </h2>
               <p className="mt-5 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
-                Start with a short brief and the key context. Eryze works on projects that need clear structure, strong execution, and a reliable path to launch.
+                Working on a website, platform, or internal tool? Send a short brief with the key context. Eryze works best with clients who want clear ownership, reliable delivery, and a studio they don&apos;t have to chase.
               </p>
             </div>
 
             <Button asChild size="lg">
-              <Link href="/contact">Start a conversation</Link>
+              <Link href="/contact">Start a project</Link>
             </Button>
           </div>
         </MotionReveal>
