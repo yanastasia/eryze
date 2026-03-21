@@ -1,16 +1,17 @@
 previews:
-  generation: auto_preview
+  generation: automatic
 
 services:
   - type: web
     name: eryze
     runtime: node
     plan: free
-    branch: main
-    autoDeploy: true
+    autoDeployTrigger: commit
     buildCommand: npm ci && npm run build
     startCommand: npm run start
     healthCheckPath: /
+    domains:
+      - eryze.com
     envVars:
       - key: NODE_ENV
         value: production
