@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 22, "column": 0}, "map": {"version":3,"sources":["file:///Users/anastasia/Github/eryze_web/app/contact/page.tsx"],"sourcesContent":["export default function ContactPage() {\n  return (\n    <div className=\"mx-auto max-w-6xl px-6 py-16\">\n      <h1 className=\"font-header text-3xl\">Collaborate with clarity</h1>\n      <p className=\"mt-2 text-muted-foreground max-w-2xl\">Tell us about your initiative. We partner with founders, organizations, and creatives to build what matters.</p>\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACtB,qBACE,8OAAC;QAAI,WAAU;;0BACb,8OAAC;gBAAG,WAAU;0BAAuB;;;;;;0BACrC,8OAAC;gBAAE,WAAU;0BAAuC;;;;;;;;;;;;AAG1D","debugId":null}}]
-}
