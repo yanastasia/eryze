@@ -40,9 +40,9 @@ export function PageHero({
   title,
 }: PageHeroProps) {
   return (
-    <section className="border-b border-border bg-card/60 py-8 sm:py-10">
+    <section className="py-8 sm:py-10">
       <Container>
-        <div className="overflow-hidden border border-border bg-card/92">
+        <div className="overflow-hidden bg-card/92 shadow-[0_18px_50px_rgba(7,17,33,0.08)] dark:shadow-[0_22px_60px_rgba(7,17,33,0.2)]">
           <div
             className={cn(
               "grid gap-8 px-5 py-8 sm:px-8 sm:py-10 md:gap-10 lg:px-10 lg:py-12",
@@ -62,7 +62,7 @@ export function PageHero({
                   {highlights.map((highlight) => (
                     <li
                       key={highlight}
-                      className="border border-border bg-background/70 px-4 py-3 text-sm leading-6 text-foreground"
+                      className="bg-background/70 px-4 py-3 text-sm leading-6 text-foreground"
                     >
                       {highlight}
                     </li>

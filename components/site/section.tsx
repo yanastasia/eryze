@@ -22,7 +22,7 @@ export function Section({
   title,
 }: SectionProps) {
   return (
-    <section id={id} className={cn("border-t border-border bg-card/55 py-14 sm:py-16", className)}>
+    <section id={id} className={cn("py-14 sm:py-16", className)}>
       <Container>
         <div className="max-w-2xl">
           {eyebrow ? (

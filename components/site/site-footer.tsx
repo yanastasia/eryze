@@ -6,7 +6,7 @@ import { Container } from "@/components/site/container";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-[#071121] py-12">
+    <footer className="bg-[var(--footer-shell)] py-12">
       <Container className="grid gap-8 md:grid-cols-[1.2fr_0.9fr_0.9fr]">
         <div>
           <BrandMark size="sm" />
@@ -32,13 +32,13 @@ export function SiteFooter() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-accent">Contact</p>
           <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
             <li>
-              <a className="transition-colors hover:text-white" href={`mailto:${siteConfig.email}`}>
+              <a className="transition-colors hover:text-foreground" href={`mailto:${siteConfig.email}`}>
                 {siteConfig.email}
               </a>
             </li>
             <li>
               <a
-                className="transition-colors hover:text-white"
+                className="transition-colors hover:text-foreground"
                 href={siteConfig.linkedinUrl}
                 rel="noreferrer"
                 target="_blank"

@@ -45,38 +45,91 @@
 
 :root {
   --radius: 0.9rem;
+  --background: #f5f7fc;
+  --foreground: #0f172a;
+  --card: rgba(255, 255, 255, 0.78);
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #7a3fff;
+  --primary-foreground: #ffffff;
+  --secondary: #e7ecfb;
+  --secondary-foreground: #0f172a;
+  --muted: #edf2fb;
+  --muted-foreground: #5d6a82;
+  --accent: #7a3fff;
+  --accent-foreground: #ffffff;
+  --destructive: #b42318;
+  --border: rgba(77, 94, 130, 0.14);
+  --input: rgba(77, 94, 130, 0.14);
+  --ring: rgba(122, 63, 255, 0.24);
+  --chart-1: #0f172a;
+  --chart-2: #7a3fff;
+  --chart-3: #7282a3;
+  --chart-4: #eef2fb;
+  --chart-5: #c4cce1;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #7a3fff;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eef2fb;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: rgba(77, 94, 130, 0.14);
+  --sidebar-ring: rgba(122, 63, 255, 0.24);
+  --brand-accent: #7a3fff;
+  --header-shell: rgba(245, 247, 252, 0.82);
+  --footer-shell: rgba(233, 238, 250, 0.88);
+  --hero-surface: #edf2ff;
+  --hero-panel: rgba(255, 255, 255, 0.7);
+  --hero-panel-strong: rgba(255, 255, 255, 0.92);
+  --hero-line: rgba(91, 106, 144, 0.16);
+  --hero-ghost: rgba(87, 104, 144, 0.08);
+  --hero-spark-border: rgba(122, 63, 255, 0.22);
+  --hero-spark-bg: rgba(122, 63, 255, 0.08);
+  --hero-spark-shadow: 0 0 18px rgba(122, 63, 255, 0.08);
+  --hero-glow: rgba(122, 63, 255, 0.1);
+  --hero-shadow: 0 24px 70px rgba(15, 23, 42, 0.08);
+  --logo-chip: #071121;
+}
+
+.dark {
   --background: #050b16;
   --foreground: #f8faff;
   --card: rgba(10, 18, 35, 0.96);
   --card-foreground: #f8faff;
   --popover: #0b1529;
   --popover-foreground: #f8faff;
-  --primary: #7a3fff;
-  --primary-foreground: #ffffff;
   --secondary: #101b33;
   --secondary-foreground: #f8faff;
   --muted: #091221;
   --muted-foreground: #9aa7c2;
-  --accent: #7a3fff;
-  --accent-foreground: #ffffff;
-  --destructive: #b42318;
   --border: rgba(147, 166, 208, 0.18);
   --input: rgba(147, 166, 208, 0.16);
   --ring: rgba(122, 63, 255, 0.35);
   --chart-1: #f8faff;
-  --chart-2: #7a3fff;
   --chart-3: #93a6d0;
   --chart-4: #101b33;
   --chart-5: #4c5f85;
   --sidebar: #071121;
   --sidebar-foreground: #f8faff;
-  --sidebar-primary: #7a3fff;
-  --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: #101b33;
   --sidebar-accent-foreground: #f8faff;
   --sidebar-border: rgba(147, 166, 208, 0.18);
   --sidebar-ring: rgba(122, 63, 255, 0.35);
   --brand-accent: #a98bff;
+  --header-shell: rgba(5, 11, 22, 0.84);
+  --footer-shell: rgba(7, 17, 33, 0.92);
+  --hero-surface: #061121;
+  --hero-panel: rgba(255, 255, 255, 0.04);
+  --hero-panel-strong: #0a162c;
+  --hero-line: rgba(84, 104, 164, 0.24);
+  --hero-ghost: rgba(35, 52, 95, 0.22);
+  --hero-spark-border: rgba(122, 63, 255, 0.45);
+  --hero-spark-bg: rgba(122, 63, 255, 0.12);
+  --hero-spark-shadow: 0 0 18px rgba(122, 63, 255, 0.18);
+  --hero-glow: rgba(122, 63, 255, 0.18);
+  --hero-shadow: 0 30px 80px rgba(7, 17, 33, 0.22);
+  --logo-chip: transparent;
 }
 
 @layer base {
@@ -90,7 +143,8 @@
 
   body {
     @apply bg-background font-sans text-foreground;
-    background-color: #050b16;
+    background-color: var(--background);
+    transition: background-color 160ms ease, color 160ms ease;
   }
 
   a {
@@ -106,22 +160,22 @@
   .eryze-hero-surface {
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(147, 166, 208, 0.18);
-    background-color: #061121;
+    background-color: var(--hero-surface);
+    box-shadow: var(--hero-shadow);
   }
 
   .eryze-hero-line {
     position: absolute;
     height: 2px;
     border-radius: 999px;
-    background-color: rgba(84, 104, 164, 0.24);
+    background-color: var(--hero-line);
     transform: rotate(-42deg);
     transform-origin: left center;
   }
 
   .eryze-hero-ghost-arrow {
     position: absolute;
-    background-color: rgba(35, 52, 95, 0.22);
+    background-color: var(--hero-ghost);
     clip-path: polygon(46% 0, 100% 36%, 74% 36%, 74% 100%, 18% 100%, 18% 36%, 0 36%);
   }
 
@@ -130,78 +184,16 @@
     width: 0.9rem;
     height: 0.9rem;
     transform: rotate(45deg);
-    border: 1px solid rgba(122, 63, 255, 0.45);
-    background-color: rgba(122, 63, 255, 0.12);
-    box-shadow: 0 0 18px rgba(122, 63, 255, 0.18);
+    border: 1px solid var(--hero-spark-border);
+    background-color: var(--hero-spark-bg);
+    box-shadow: var(--hero-spark-shadow);
   }
 
   .eryze-hero-glow {
     position: absolute;
     border-radius: 999px;
-    background-color: rgba(122, 63, 255, 0.18);
-    box-shadow: 0 0 40px rgba(122, 63, 255, 0.2);
+    background-color: var(--hero-glow);
+    box-shadow: 0 0 40px var(--hero-glow);
     filter: blur(10px);
-  }
-
-  .eryze-logo-arrow {
-    position: relative;
-    display: inline-flex;
-    width: 0.52em;
-    height: 0.92em;
-    filter: drop-shadow(0 0 16px rgba(122, 63, 255, 0.22));
-  }
-
-  .eryze-logo-arrow::before {
-    content: "";
-    position: absolute;
-    right: 0.12em;
-    bottom: 0.02em;
-    width: 0.12em;
-    height: 78%;
-    border-radius: 999px;
-    background-color: #7a3fff;
-    transform: rotate(27deg);
-    transform-origin: bottom center;
-  }
-
-  .eryze-logo-arrow::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 0;
-    border-right: 0 solid transparent;
-    border-left: 0.2em solid transparent;
-    border-bottom: 0.28em solid #7a3fff;
-    transform: rotate(27deg);
-    transform-origin: center;
-  }
-
-  .eryze-logo-stub {
-    display: inline-flex;
-    width: 0.09em;
-    height: 0.3em;
-    border-radius: 999px;
-    background-color: #f8faff;
-    transform: rotate(-26deg) translateY(-0.04em);
-  }
-
-  .eryze-wordmark {
-    position: relative;
-    display: inline-flex;
-    line-height: 0.9;
-  }
-
-  .eryze-wordmark-arrow {
-    position: absolute;
-    left: 1.62em;
-    top: -0.05em;
-  }
-
-  .eryze-wordmark-stub {
-    position: absolute;
-    left: 1.46em;
-    top: 0.18em;
   }
 }

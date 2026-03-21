@@ -12,15 +12,13 @@ const heroSignals = [
 ];
 
 const actionClassNames = {
-  default:
-    "border border-[#7a3fff] bg-[#7a3fff] text-white hover:border-[#8c5aff] hover:bg-[#8c5aff]",
-  outline:
-    "border-white/16 bg-transparent text-white hover:border-[#7a3fff] hover:bg-[#7a3fff] hover:text-white",
+  default: undefined,
+  outline: "border-border bg-transparent text-foreground hover:bg-foreground hover:text-background",
 } as const;
 
 export function HomeHero() {
   return (
-    <section className="border-b border-border bg-[#061121] py-8 sm:py-10">
+    <section className="py-8 sm:py-10">
       <Container>
         <div className="eryze-hero-surface">
           <span className="eryze-hero-line left-[-6%] top-[14%] w-44 sm:w-60" aria-hidden />
@@ -46,13 +44,13 @@ export function HomeHero() {
 
           <div className="relative z-10 grid gap-10 px-5 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,1.1fr)] lg:px-0 lg:py-14">
             <div className="max-w-xl">
-              <p className="text-sm font-medium uppercase tracking-[0.28em] text-slate-300">Eryze Studio</p>
+              <p className="text-sm font-medium uppercase tracking-[0.28em] text-muted-foreground">Eryze Studio</p>
               <h1 className="mt-5 max-w-lg font-display text-5xl font-bold uppercase leading-[0.9] tracking-[-0.06em] text-[#8f61ff] sm:text-6xl lg:text-[5.4rem]">
                 Innovation
                 <br />
                 in motion.
               </h1>
-              <p className="mt-5 max-w-lg text-sm leading-6 text-slate-300 sm:text-base">
+              <p className="mt-5 max-w-lg text-sm leading-6 text-muted-foreground sm:text-base">
                 Founder-led digital product studio for websites, platforms, and internal systems that need clarity fast.
               </p>
 
@@ -69,7 +67,7 @@ export function HomeHero() {
                 {heroSignals.map((signal) => (
                   <div
                     key={signal}
-                    className="rounded-[1.2rem] border border-white/10 bg-white/5 px-4 py-4 text-sm leading-6 text-slate-100"
+                    className="rounded-[1.2rem] border border-border bg-[var(--hero-panel)] px-4 py-4 text-sm leading-6 text-foreground"
                   >
                     {signal}
                   </div>
@@ -78,17 +76,17 @@ export function HomeHero() {
             </div>
 
             <div className="flex min-h-[260px] items-center justify-center lg:justify-end">
-              <div className="w-full max-w-[34rem] border border-white/10 bg-white/[0.03] p-6 sm:p-8">
+              <div className="w-full max-w-[34rem] bg-[var(--hero-panel)] p-6 sm:p-8">
                 <BrandMark size="lg" className="justify-center" />
 
                 <div className="mt-8 grid gap-3 text-center sm:grid-cols-2 sm:text-left">
-                  <div className="border border-white/10 bg-[#0a162c] px-4 py-4">
+                  <div className="bg-[var(--hero-panel-strong)] px-4 py-4">
                     <p className="text-xs font-medium uppercase tracking-[0.24em] text-[#8f61ff]">Built for</p>
-                    <p className="mt-2 text-sm leading-6 text-slate-200">Product launches, client platforms, and internal systems.</p>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">Product launches, client platforms, and internal systems.</p>
                   </div>
-                  <div className="border border-white/10 bg-[#0a162c] px-4 py-4">
+                  <div className="bg-[var(--hero-panel-strong)] px-4 py-4">
                     <p className="text-xs font-medium uppercase tracking-[0.24em] text-[#8f61ff]">Operating mode</p>
-                    <p className="mt-2 text-sm leading-6 text-slate-200">Clean structure, fast iteration, and maintainable delivery.</p>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">Clean structure, fast iteration, and maintainable delivery.</p>
                   </div>
                 </div>
               </div>

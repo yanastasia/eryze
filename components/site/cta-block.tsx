@@ -23,9 +23,9 @@ export function CTABlock({
   title,
 }: CTABlockProps) {
   return (
-    <section className="border-t border-border bg-[#071121] py-16 sm:py-20">
+    <section className="py-16 sm:py-20">
       <Container>
-        <div className="border border-border bg-card px-5 py-8 text-foreground sm:px-8 sm:py-10 lg:px-10">
+        <div className="bg-card px-5 py-8 text-foreground shadow-[0_18px_50px_rgba(7,17,33,0.08)] dark:shadow-[0_22px_60px_rgba(7,17,33,0.2)] sm:px-8 sm:py-10 lg:px-10">
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1.35fr)_auto] lg:items-end">
             <div>
               <p className="text-sm font-medium uppercase tracking-[0.22em] text-brand-accent">Next step</p>
@@ -39,7 +39,7 @@ export function CTABlock({
               {secondaryAction ? (
                 <Button
                   asChild
-                  className="w-full border-border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground sm:w-auto"
+                  className="w-full bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground sm:w-auto"
                   variant="outline"
                 >
                   <Link href={secondaryAction.href}>{secondaryAction.label}</Link>

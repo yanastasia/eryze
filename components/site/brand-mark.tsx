@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { cn } from "@/lib/utils";
 
 type BrandMarkProps = {
@@ -6,30 +8,36 @@ type BrandMarkProps = {
 };
 
 const sizeClassNames = {
-  sm: "gap-1.5 text-[1.45rem] sm:text-[1.65rem]",
-  md: "gap-2 text-[2.25rem] sm:text-[2.7rem]",
-  lg: "gap-2.5 text-[3.7rem] sm:text-[5.2rem] lg:text-[6.5rem]",
+  sm: "h-5 w-auto sm:h-6",
+  md: "h-8 w-auto sm:h-10",
+  lg: "h-14 w-auto sm:h-16 lg:h-20",
+} as const;
+
+const chipClassNames = {
+  sm: "rounded-[0.8rem] px-2.5 py-1",
+  md: "rounded-[1rem] px-3 py-1.5",
+  lg: "rounded-[1.25rem] px-4 py-3",
 } as const;
 
 export function BrandMark({ className, size = "md" }: BrandMarkProps) {
   return (
-    <div
-      aria-label="ERYZE"
-      className={cn(
-        "font-display font-bold uppercase tracking-[-0.11em]",
-        sizeClassNames[size],
-        className,
-      )}
-    >
-      <span className="eryze-wordmark">
-        <span className="text-white">ERZE</span>
-        <span className="eryze-wordmark-stub" aria-hidden>
-          <span className="eryze-logo-stub" />
-        </span>
-        <span className="eryze-wordmark-arrow" aria-hidden>
-          <span className="eryze-logo-arrow" />
-        </span>
+    <span aria-label="ERYZE" className={cn("inline-flex items-center", className)}>
+      <span
+        className={cn(
+          "inline-flex items-center bg-[var(--logo-chip)] shadow-[0_10px_24px_rgba(7,17,33,0.12)] dark:shadow-none",
+          chipClassNames[size],
+        )}
+      >
+        <Image
+          alt="ERYZE"
+          className={sizeClassNames[size]}
+          height={305}
+          priority={size === "lg"}
+          src="/eryze-logo-dark.png"
+          width={716}
+        />
       </span>
-    </div>
+      <span className="sr-only">ERYZE</span>
+    </span>
   );
 }
