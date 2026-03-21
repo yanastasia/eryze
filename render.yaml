@@ -7,8 +7,8 @@ services:
     runtime: node
     plan: free
     autoDeployTrigger: commit
-    buildCommand: npm ci && npm run build
-    startCommand: npm run start
+    buildCommand: corepack pnpm install --frozen-lockfile && corepack pnpm run build
+    startCommand: corepack pnpm run start
     healthCheckPath: /
     domains:
       - eryze.com

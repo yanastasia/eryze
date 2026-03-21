@@ -240,18 +240,19 @@ export const projects: Project[] = [
     slug: "acting-europe",
     title: "Acting Europe",
     tagline: "Platform for discovering theatre events and cultural experiences",
-    tags: ["Cultural Platform", "Next.js", "Content UX"],
-    status: "Ongoing Client Work",
+    tags: ["Cultural Platform", "Bilingual UX", "Bookings"],
+    status: "Completed",
     category: "Client",
+    liveUrl: "https://www.actingeurope.eu/",
     featured: true,
     order: 4,
     hero: {
-      description: "A modern platform for exploring theatre events and venues across Europe",
+      description: "A live cultural platform for exploring theatre events, venues, and bookings across Europe",
     },
     overview: {
       who: "Cultural organization, theatre audiences, and event contributors",
-      what: "Client platform for browsing and showcasing theatre events and venues",
-      role: "Product design, full-stack development, and delivery structure",
+      what: "Bilingual platform for browsing theatre events, venue information, and booking-related flows",
+      role: "Product design, full-stack development, and launch delivery",
     },
     problem: [
       "Theatre content is fragmented across multiple sources",
@@ -265,8 +266,8 @@ export const projects: Project[] = [
     ],
     solution: [
       "Built modular platform for content-heavy browsing",
-      "Designed navigation for multi-level content exploration",
-      "Prepared system for future data integrations",
+      "Designed bilingual navigation for events, venues, and booking paths",
+      "Structured the system for publishing and future content growth",
     ],
     built: [
       {
@@ -281,7 +282,14 @@ export const projects: Project[] = [
         title: "Exploration UX",
         points: [
           "Structured browsing for events and venues",
-          "Clear navigation patterns",
+          "Clear bilingual navigation patterns",
+          "Booking-aware user flows for event participation",
+        ],
+      },
+      {
+        title: "Platform Delivery",
+        points: [
+          "Launch-ready implementation for a live public platform",
           "Responsive layouts for discovery",
         ],
       },
@@ -294,14 +302,14 @@ export const projects: Project[] = [
       ],
     },
     outcome: [
-      "Strong foundation for cultural discovery platform",
-      "Improved content accessibility",
-      "Prepared for future scaling",
+      "Delivered a live platform for public cultural discovery",
+      "Improved visibility and access to theatre programming",
+      "Created a foundation for future editorial and content expansion",
     ],
     learnings: [
       "Content platforms need strong structure",
       "Navigation defines usability",
-      "Early architecture shapes scalability",
+      "Editorial clarity matters as much as interface polish",
     ],
   },
 ];
@@ -318,9 +326,7 @@ export const sortedProjects = [...projects].sort((left, right) => {
 
 export const featuredProjects = sortedProjects.filter((project) => project.featured);
 
-export const projectTags = Array.from(new Set(projects.flatMap((project) => project.tags))).sort((left, right) =>
-  left.localeCompare(right),
-);
+export const workFilterTags = ["Client", "Product", "Platform", "Bookings", "Bilingual UX"] as const;
 
 export function getProjectBySlug(slug: string) {
   return projects.find((project) => project.slug === slug);

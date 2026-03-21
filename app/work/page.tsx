@@ -2,7 +2,7 @@ import { CTABlock } from "@/components/site/cta-block";
 import { PageHero } from "@/components/site/page-hero";
 import { ProjectGrid } from "@/components/site/project-grid";
 import { Section } from "@/components/site/section";
-import { projectTags, sortedProjects } from "@/data/projects";
+import { sortedProjects, workFilterTags } from "@/data/projects";
 import { createPageMetadata } from "@/lib/metadata";
 
 type WorkPageProps = {
@@ -22,7 +22,7 @@ export default async function WorkPage({ searchParams }: WorkPageProps) {
   const params = searchParams ? await searchParams : {};
   const activeTag = typeof params.tag === "string" ? params.tag : undefined;
   const visibleProjects = activeTag
-    ? sortedProjects.filter((project) => project.tags.includes(activeTag))
+    ? sortedProjects.filter((project) => project.tags.includes(activeTag) || project.category === activeTag)
     : sortedProjects;
 
   return (
@@ -33,13 +33,13 @@ export default async function WorkPage({ searchParams }: WorkPageProps) {
         highlights={[
           `${sortedProjects.length} structured case studies`,
           "Featured work appears first",
-          "Filter by platform type or context",
+          "Filter by project type or context",
         ]}
         title="Selected products and platforms built for real-world use."
       >
         <div className="w-full rounded-[1.75rem] border border-border bg-background/70 p-5">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-brand-accent">Current view</p>
-          <p className="mt-4 font-display text-3xl text-foreground">{activeTag ? activeTag : "All sectors"}</p>
+          <p className="mt-4 font-display text-3xl text-foreground">{activeTag ? activeTag : "All work"}</p>
           <p className="mt-3 text-sm leading-6 text-muted-foreground">
             {visibleProjects.length} project{visibleProjects.length === 1 ? "" : "s"} shown.
           </p>
@@ -47,13 +47,13 @@ export default async function WorkPage({ searchParams }: WorkPageProps) {
       </PageHero>
 
       <Section
-        description="Browse all work or filter by the context that matches your project."
+        description="Browse all work or use a smaller filter set based on project type and delivery context."
         eyebrow="Portfolio"
         title="Case studies"
       >
         <ProjectGrid
           activeTag={activeTag}
-          availableTags={projectTags}
+          availableTags={[...workFilterTags]}
           projects={visibleProjects}
           showFilters
         />

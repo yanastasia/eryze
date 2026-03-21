@@ -79,6 +79,17 @@ export default async function WorkDetailPage({ params }: WorkDetailPageProps) {
             </div>
             <p className="mt-4 text-sm font-medium uppercase tracking-[0.18em] text-brand-accent">Role</p>
             <p className="mt-2 text-sm leading-6 text-muted-foreground">{project.overview.role}</p>
+            {project.liveUrl ? (
+              <a
+                className="mt-4 inline-flex items-center text-sm font-semibold text-foreground transition-colors hover:text-brand-accent"
+                href={project.liveUrl}
+                rel="noreferrer"
+                target="_blank"
+              >
+                Visit live site
+                <span className="ml-2 text-base">↗</span>
+              </a>
+            ) : null}
           </div>
         </div>
       </PageHero>

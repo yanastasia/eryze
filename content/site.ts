@@ -4,6 +4,13 @@ export type Capability = {
   outcomes: string[];
 };
 
+export type HomeService = {
+  label: string;
+  title: string;
+  description: string;
+  details: string[];
+};
+
 export type ProcessStep = {
   title: string;
   description: string;
@@ -61,6 +68,42 @@ export const capabilities: Capability[] = [
     description:
       "Automation applied only where it removes friction and improves repeatability.",
     outcomes: ["Process mapping", "Human-in-the-loop automation", "Lean technical scope"],
+  },
+];
+
+export const homeServices: HomeService[] = [
+  {
+    label: "Websites",
+    title: "Positioning-led websites built to explain the offer clearly.",
+    description:
+      "Marketing sites and launch pages designed to communicate value quickly and turn attention into qualified conversations.",
+    details: [
+      "Messaging and page structure",
+      "Responsive design systems",
+      "Conversion-focused build quality",
+    ],
+  },
+  {
+    label: "Platforms",
+    title: "Client and product platforms shaped around real user flows.",
+    description:
+      "Structured interfaces for discovery, coordination, booking, publishing, and other multi-step product experiences.",
+    details: [
+      "User-facing product flows",
+      "Content and operations layers",
+      "Clean front-end architecture",
+    ],
+  },
+  {
+    label: "Systems",
+    title: "Internal tools and automation that simplify recurring work.",
+    description:
+      "Operational systems built to reduce manual effort, improve clarity, and support the teams using them day to day.",
+    details: [
+      "Internal workflow tools",
+      "Automation where it adds value",
+      "Maintainable implementation",
+    ],
   },
 ];
 

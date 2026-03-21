@@ -1,4 +1,9 @@
-export type ProjectStatus = "Ongoing" | "Near Launch" | "In Progress" | "Ongoing Client Work";
+export type ProjectStatus =
+  | "Ongoing"
+  | "Near Launch"
+  | "In Progress"
+  | "Ongoing Client Work"
+  | "Completed";
 
 export type ProjectBuiltBlock = {
   title: string;
@@ -27,6 +32,7 @@ export type Project = {
   tags: string[];
   status: ProjectStatus;
   category: string;
+  liveUrl?: string;
   featured?: boolean;
   order: number;
   hero: ProjectHero;
