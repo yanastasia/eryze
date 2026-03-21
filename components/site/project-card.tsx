@@ -10,7 +10,7 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border bg-card shadow-[0_18px_60px_rgba(15,23,42,0.08)] transition-colors focus-within:border-foreground/30 hover:border-foreground/20">
+    <article className="group flex h-full flex-col overflow-hidden border border-border bg-card transition-colors focus-within:border-brand-accent/60 hover:border-brand-accent/40">
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="flex flex-wrap items-center gap-3">
           <StatusBadge status={project.status} />

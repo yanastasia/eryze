@@ -44,39 +44,39 @@
 }
 
 :root {
-  --radius: 1rem;
-  --background: #f3f5fb;
-  --foreground: #0f172a;
-  --card: rgba(255, 255, 255, 0.92);
-  --card-foreground: #0f172a;
-  --popover: #ffffff;
-  --popover-foreground: #0f172a;
-  --primary: #0f172a;
-  --primary-foreground: #f8faff;
-  --secondary: #e8ecfb;
-  --secondary-foreground: #0f172a;
-  --muted: #e9edf7;
-  --muted-foreground: #526077;
+  --radius: 0.9rem;
+  --background: #050b16;
+  --foreground: #f8faff;
+  --card: rgba(10, 18, 35, 0.96);
+  --card-foreground: #f8faff;
+  --popover: #0b1529;
+  --popover-foreground: #f8faff;
+  --primary: #7a3fff;
+  --primary-foreground: #ffffff;
+  --secondary: #101b33;
+  --secondary-foreground: #f8faff;
+  --muted: #091221;
+  --muted-foreground: #9aa7c2;
   --accent: #7a3fff;
-  --accent-foreground: #f8faff;
+  --accent-foreground: #ffffff;
   --destructive: #b42318;
-  --border: rgba(15, 23, 42, 0.1);
-  --input: rgba(15, 23, 42, 0.12);
+  --border: rgba(147, 166, 208, 0.18);
+  --input: rgba(147, 166, 208, 0.16);
   --ring: rgba(122, 63, 255, 0.35);
-  --chart-1: #0f172a;
+  --chart-1: #f8faff;
   --chart-2: #7a3fff;
-  --chart-3: #506381;
-  --chart-4: #d8def1;
-  --chart-5: #9da9c4;
-  --sidebar: #f8faff;
-  --sidebar-foreground: #0f172a;
-  --sidebar-primary: #0f172a;
-  --sidebar-primary-foreground: #f8faff;
-  --sidebar-accent: #e8ecfb;
-  --sidebar-accent-foreground: #0f172a;
-  --sidebar-border: rgba(15, 23, 42, 0.1);
+  --chart-3: #93a6d0;
+  --chart-4: #101b33;
+  --chart-5: #4c5f85;
+  --sidebar: #071121;
+  --sidebar-foreground: #f8faff;
+  --sidebar-primary: #7a3fff;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #101b33;
+  --sidebar-accent-foreground: #f8faff;
+  --sidebar-border: rgba(147, 166, 208, 0.18);
   --sidebar-ring: rgba(122, 63, 255, 0.35);
-  --brand-accent: #7a3fff;
+  --brand-accent: #a98bff;
 }
 
 @layer base {
@@ -90,6 +90,7 @@
 
   body {
     @apply bg-background font-sans text-foreground;
+    background-color: #050b16;
   }
 
   a {
@@ -105,9 +106,8 @@
   .eryze-hero-surface {
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(124, 146, 196, 0.16);
+    border: 1px solid rgba(147, 166, 208, 0.18);
     background-color: #061121;
-    box-shadow: 0 30px 80px rgba(3, 9, 20, 0.28);
   }
 
   .eryze-hero-line {
@@ -146,17 +146,17 @@
   .eryze-logo-arrow {
     position: relative;
     display: inline-flex;
-    width: clamp(2.8rem, 6vw, 4.7rem);
-    height: clamp(5.25rem, 10vw, 7.75rem);
+    width: 0.52em;
+    height: 0.92em;
     filter: drop-shadow(0 0 16px rgba(122, 63, 255, 0.22));
   }
 
   .eryze-logo-arrow::before {
     content: "";
     position: absolute;
-    right: 1.05rem;
-    bottom: 0.2rem;
-    width: 0.82rem;
+    right: 0.12em;
+    bottom: 0.02em;
+    width: 0.12em;
     height: 78%;
     border-radius: 999px;
     background-color: #7a3fff;
@@ -172,18 +172,36 @@
     width: 0;
     height: 0;
     border-right: 0 solid transparent;
-    border-left: 1.55rem solid transparent;
-    border-bottom: 2.1rem solid #7a3fff;
+    border-left: 0.2em solid transparent;
+    border-bottom: 0.28em solid #7a3fff;
     transform: rotate(27deg);
     transform-origin: center;
   }
 
   .eryze-logo-stub {
     display: inline-flex;
-    width: 0.78rem;
-    height: clamp(1.8rem, 4vw, 2.5rem);
+    width: 0.09em;
+    height: 0.3em;
     border-radius: 999px;
     background-color: #f8faff;
-    transform: rotate(-26deg) translateY(-0.28rem);
+    transform: rotate(-26deg) translateY(-0.04em);
+  }
+
+  .eryze-wordmark {
+    position: relative;
+    display: inline-flex;
+    line-height: 0.9;
+  }
+
+  .eryze-wordmark-arrow {
+    position: absolute;
+    left: 1.62em;
+    top: -0.05em;
+  }
+
+  .eryze-wordmark-stub {
+    position: absolute;
+    left: 1.46em;
+    top: 0.18em;
   }
 }

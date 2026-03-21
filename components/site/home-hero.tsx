@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { BrandMark } from "@/components/site/brand-mark";
 import { Container } from "@/components/site/container";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -19,9 +20,9 @@ const actionClassNames = {
 
 export function HomeHero() {
   return (
-    <section className="pb-6 pt-6 sm:pb-8 sm:pt-8">
+    <section className="border-b border-border bg-[#061121] py-8 sm:py-10">
       <Container>
-        <div className="eryze-hero-surface rounded-[2.25rem]">
+        <div className="eryze-hero-surface">
           <span className="eryze-hero-line left-[-6%] top-[14%] w-44 sm:w-60" aria-hidden />
           <span className="eryze-hero-line left-[22%] top-[80%] w-28 sm:w-40" aria-hidden />
           <span className="eryze-hero-line right-[-8%] top-[22%] w-48 sm:w-64" aria-hidden />
@@ -43,7 +44,7 @@ export function HomeHero() {
           <span className="eryze-hero-glow left-[18%] top-[18%] h-14 w-14" aria-hidden />
           <span className="eryze-hero-glow right-[10%] top-[66%] h-16 w-16" aria-hidden />
 
-          <div className="relative z-10 grid gap-10 px-5 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(320px,1.05fr)] lg:px-10 lg:py-12">
+          <div className="relative z-10 grid gap-10 px-5 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,1.1fr)] lg:px-0 lg:py-14">
             <div className="max-w-xl">
               <p className="text-sm font-medium uppercase tracking-[0.28em] text-slate-300">Eryze Studio</p>
               <h1 className="mt-5 max-w-lg font-display text-5xl font-bold uppercase leading-[0.9] tracking-[-0.06em] text-[#8f61ff] sm:text-6xl lg:text-[5.4rem]">
@@ -77,23 +78,15 @@ export function HomeHero() {
             </div>
 
             <div className="flex min-h-[260px] items-center justify-center lg:justify-end">
-              <div className="w-full max-w-[33rem] rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 shadow-[0_24px_60px_rgba(2,8,20,0.26)] sm:p-8">
-                <div
-                  aria-label="ERYZE"
-                  className="flex items-end justify-center gap-3 font-display text-[clamp(3.4rem,12vw,7rem)] font-bold uppercase leading-none tracking-[-0.09em]"
-                >
-                  <span className="text-white">ER</span>
-                  <span className="eryze-logo-stub" aria-hidden />
-                  <span className="eryze-logo-arrow" aria-hidden />
-                  <span className="text-white">ZE</span>
-                </div>
+              <div className="w-full max-w-[34rem] border border-white/10 bg-white/[0.03] p-6 sm:p-8">
+                <BrandMark size="lg" className="justify-center" />
 
                 <div className="mt-8 grid gap-3 text-center sm:grid-cols-2 sm:text-left">
-                  <div className="rounded-[1.1rem] border border-white/10 bg-[#0a162c] px-4 py-4">
+                  <div className="border border-white/10 bg-[#0a162c] px-4 py-4">
                     <p className="text-xs font-medium uppercase tracking-[0.24em] text-[#8f61ff]">Built for</p>
                     <p className="mt-2 text-sm leading-6 text-slate-200">Product launches, client platforms, and internal systems.</p>
                   </div>
-                  <div className="rounded-[1.1rem] border border-white/10 bg-[#0a162c] px-4 py-4">
+                  <div className="border border-white/10 bg-[#0a162c] px-4 py-4">
                     <p className="text-xs font-medium uppercase tracking-[0.24em] text-[#8f61ff]">Operating mode</p>
                     <p className="mt-2 text-sm leading-6 text-slate-200">Clean structure, fast iteration, and maintainable delivery.</p>
                   </div>
