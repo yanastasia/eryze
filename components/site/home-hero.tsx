@@ -109,11 +109,7 @@ export function HomeHero() {
                 Eryze Studio
               </motion.p>
               <div className="mt-5 max-w-lg font-display text-5xl font-bold uppercase leading-[0.9] tracking-[-0.06em] text-[#8f61ff] sm:text-6xl lg:text-[5.4rem]">
-                {[
-                  "A development studio",
-                  "that runs the process",
-                  "so you don't have to.",
-                ].map((line, index) => (
+                {["Innovation", "in motion"].map((line, index) => (
                   <motion.span
                     key={line}
                     className="block"
