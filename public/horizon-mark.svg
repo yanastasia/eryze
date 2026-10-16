@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 152" width="220" height="152" role="img" aria-label="Eryze Horizon">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9d5bff"></stop><stop offset=".48" stop-color="#e86a8e"></stop><stop offset="1" stop-color="#f0a85e"></stop></linearGradient>
+    <clipPath id="above"><rect x="0" y="0" width="220" height="105"></rect></clipPath>
+  </defs>
+  <circle cx="110" cy="99" r="52" fill="url(#sky)" clip-path="url(#above)"></circle>
+  <g stroke="#f3f1fc" stroke-linecap="round" fill="none">
+    <line x1="16" y1="105" x2="204" y2="105" stroke-width="7"></line>
+    <line x1="56" y1="123" x2="164" y2="123" stroke-width="6.5" opacity=".5"></line>
+    <line x1="88" y1="139" x2="132" y2="139" stroke-width="6.5" opacity=".26"></line>
+  </g>
+</svg>

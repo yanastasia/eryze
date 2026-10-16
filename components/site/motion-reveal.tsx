@@ -11,6 +11,7 @@ type MotionRevealProps = {
   delay?: number;
   distance?: number;
   once?: boolean;
+  variant?: "up" | "soft" | "line";
 };
 
 export function MotionReveal({
@@ -19,6 +20,7 @@ export function MotionReveal({
   delay = 0,
   distance = 28,
   once = true,
+  variant = "up",
 }: MotionRevealProps) {
   const shouldReduceMotion = useReducedMotion();
 
@@ -29,10 +31,16 @@ export function MotionReveal({
   return (
     <motion.div
       className={cn("will-change-transform", className)}
-      initial={{ opacity: 0, y: distance }}
+      initial={
+        variant === "line"
+          ? { opacity: 0, x: -28 }
+          : variant === "soft"
+            ? { opacity: 0, y: Math.max(12, distance / 2) }
+            : { opacity: 0, y: distance }
+      }
       transition={{ delay, duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
       viewport={{ amount: 0.24, once }}
-      whileInView={{ opacity: 1, y: 0 }}
+      whileInView={variant === "line" ? { opacity: 1, x: 0 } : { opacity: 1, y: 0 }}
     >
       {children}
     </motion.div>

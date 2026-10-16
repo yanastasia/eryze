@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Host: eryze.com
 Sitemap: https://eryze.com/sitemap.xml

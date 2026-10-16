@@ -1,7 +1,8 @@
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/site/container";
+import { HoverSignalLink } from "@/components/site/eryze-motion";
+import { Button } from "@/components/ui/button";
 
 type CTAAction = {
   href: string;
@@ -23,28 +24,38 @@ export function CTABlock({
   title,
 }: CTABlockProps) {
   return (
-    <section className="py-16 sm:py-20">
+    <section className="py-12 sm:py-16 lg:py-20">
       <Container>
-        <div className="bg-card px-5 py-8 text-foreground shadow-[0_18px_50px_rgba(7,17,33,0.08)] dark:shadow-[0_22px_60px_rgba(7,17,33,0.2)] sm:px-8 sm:py-10 lg:px-10">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.35fr)_auto] lg:items-end">
-            <div>
-              <p className="text-sm font-medium uppercase tracking-[0.22em] text-brand-accent">Next step</p>
-              <h2 className="mt-3 text-balance font-display text-3xl leading-tight sm:text-4xl">{title}</h2>
-              <p className="mt-3 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">{description}</p>
+        <div className="relative isolate overflow-hidden rounded-[1.1rem] border border-border bg-[rgba(8,7,15,0.76)] px-6 py-12 shadow-[0_20px_60px_-24px_rgba(0,0,0,0.72)] sm:px-10 lg:px-14 lg:py-16">
+          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(55%_90%_at_100%_100%,rgba(232,106,142,0.28),transparent_68%),radial-gradient(70%_110%_at_24%_120%,rgba(123,47,247,0.48),transparent_70%)]" />
+          <div className="grid gap-8 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] xl:items-end">
+            <div className="max-w-3xl">
+              <p className="eryze-kicker">Next move</p>
+              <h2 className="mt-6 text-balance font-display text-[clamp(3rem,5vw,5.8rem)] font-normal leading-[0.94] tracking-[-0.025em] text-foreground">
+                {title}
+              </h2>
+              <p className="mt-6 max-w-2xl font-serif text-[1.08rem] leading-8 text-muted-foreground">{description}</p>
             </div>
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:justify-end">
+
+            <div className="flex flex-col gap-4 xl:items-start xl:justify-end">
               <Button asChild className="w-full sm:w-auto">
                 <Link href={primaryAction.href}>{primaryAction.label}</Link>
               </Button>
               {secondaryAction ? (
-                <Button
-                  asChild
-                  className="w-full bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground sm:w-auto"
-                  variant="outline"
-                >
+                <Button asChild className="w-full sm:w-auto" variant={secondaryAction.variant ?? "outline"}>
                   <Link href={secondaryAction.href}>{secondaryAction.label}</Link>
                 </Button>
               ) : null}
+              <HoverSignalLink
+                arrow="right"
+                className="pt-2 text-muted-foreground hover:text-foreground"
+                href="/contact"
+                intensity={0.48}
+                opacity={0.6}
+                speed={1}
+              >
+                Write to Anastasia
+              </HoverSignalLink>
             </div>
           </div>
         </div>

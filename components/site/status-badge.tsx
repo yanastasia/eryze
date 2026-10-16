@@ -2,11 +2,11 @@ import type { ProjectStatus } from "@/types/project";
 import { cn } from "@/lib/utils";
 
 const statusClassNames: Record<ProjectStatus, string> = {
-  Completed: "border-emerald-200 bg-emerald-50 text-emerald-900",
-  "In Progress": "border-amber-200 bg-amber-50 text-amber-900",
-  "Near Launch": "border-emerald-200 bg-emerald-50 text-emerald-900",
-  Ongoing: "border-sky-200 bg-sky-50 text-sky-900",
-  "Ongoing Client Work": "border-violet-200 bg-violet-50 text-violet-900",
+  Completed: "border-brand-accent/28 bg-brand-accent/12 text-foreground",
+  "In Progress": "border-brand-support/30 bg-brand-support/12 text-foreground",
+  "Near Launch": "border-brand-accent/36 bg-brand-accent/14 text-foreground",
+  Ongoing: "border-border bg-secondary/60 text-foreground",
+  "Ongoing Client Work": "border-brand-support/30 bg-brand-support/12 text-foreground",
 };
 
 type StatusBadgeProps = {
@@ -17,7 +17,7 @@ export function StatusBadge({ status }: StatusBadgeProps) {
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold tracking-[0.02em]",
+        "inline-flex items-center rounded-full border px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.14em]",
         statusClassNames[status],
       )}
     >

@@ -1,10 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Rounded square background mimicking bg-foreground -->
-  <rect x="4" y="4" width="56" height="56" rx="12" fill="#ffffff"/>
-  <!-- Arrow up-right icon in dark foreground -->
-  <g stroke="#0B1224" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none">
-    <path d="M22 22h20v20"/>
-    <path d="M22 42 42 22"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Eryze Horizon app icon">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9d5bff" />
+      <stop offset=".48" stop-color="#e86a8e" />
+      <stop offset="1" stop-color="#f0a85e" />
+    </linearGradient>
+    <radialGradient id="bloom" cx="50%" cy="120%" r="80%">
+      <stop offset="0" stop-color="#9d5bff" />
+      <stop offset=".55" stop-color="#1a0f3a" />
+      <stop offset="1" stop-color="#0b0a15" />
+    </radialGradient>
+    <clipPath id="tile"><rect width="1024" height="1024" rx="230" /></clipPath>
+    <clipPath id="above"><rect x="0" y="0" width="220" height="105" /></clipPath>
+  </defs>
+  <g clip-path="url(#tile)">
+    <rect width="1024" height="1024" fill="#0b0a15" />
+    <rect width="1024" height="1024" fill="url(#bloom)" opacity=".85" />
+    <g transform="translate(202 298) scale(2.818)">
+      <circle cx="110" cy="99" r="52" fill="url(#sky)" clip-path="url(#above)" />
+      <g stroke="#f3f1fc" stroke-linecap="round" fill="none">
+        <line x1="16" y1="105" x2="204" y2="105" stroke-width="7" />
+        <line x1="56" y1="123" x2="164" y2="123" stroke-width="6.5" opacity=".5" />
+        <line x1="88" y1="139" x2="132" y2="139" stroke-width="6.5" opacity=".26" />
+      </g>
+    </g>
   </g>
 </svg>

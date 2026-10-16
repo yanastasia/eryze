@@ -1,19 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import type { HomeService, ProcessStep } from "@/content/site";
+import type { HomeService } from "@/content/site";
 import { Container } from "@/components/site/container";
 import { ContentGrid } from "@/components/site/content-grid";
 import { MotionReveal } from "@/components/site/motion-reveal";
 import { Button } from "@/components/ui/button";
 import type { Project } from "@/types/project";
 import { cn } from "@/lib/utils";
+import { getProjectPath } from "@/data/projects";
 
 type SceneHeaderProps = {
   align?: "center" | "start";
   className?: string;
   description?: string;
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
 };
 
@@ -32,8 +33,17 @@ export function SceneHeader({
         className,
       )}
     >
-      <p className="text-xs font-medium uppercase tracking-[0.28em] text-brand-accent sm:text-sm">{eyebrow}</p>
-      <h2 className="mt-4 text-balance font-display text-4xl leading-[0.95] text-foreground sm:text-5xl lg:text-6xl">
+      {eyebrow ? (
+        <div className={cn("flex items-center gap-4", align === "center" ? "justify-center" : "")}>
+          <p className="eryze-kicker">{eyebrow}</p>
+        </div>
+      ) : null}
+      <h2
+        className={cn(
+          "text-balance font-serif text-4xl leading-[0.94] tracking-[-0.04em] text-foreground sm:text-5xl lg:text-6xl",
+          eyebrow ? "mt-4" : "",
+        )}
+      >
         {title}
       </h2>
       {description ? (
@@ -50,71 +60,44 @@ export function SceneHeader({
   );
 }
 
-export function PositioningStrip({
-  paragraphs,
-  title,
-}: {
-  paragraphs: string[];
-  title: string;
-}) {
-  return (
-    <section className="relative border-y border-border/60 py-20 sm:py-24">
-      <Container>
-        <MotionReveal>
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="text-xs font-medium uppercase tracking-[0.28em] text-brand-accent sm:text-sm">
-              Studio
-            </p>
-            <h2 className="mt-4 text-balance font-display text-4xl leading-[0.95] text-foreground sm:text-5xl lg:text-6xl">
-              {title}
-            </h2>
-            <div className="mx-auto mt-8 max-w-3xl space-y-5 text-sm leading-7 text-muted-foreground sm:text-base">
-              {paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-          </div>
-        </MotionReveal>
-      </Container>
-    </section>
-  );
-}
-
 export function ServiceSequence({ services }: { services: HomeService[] }) {
   return (
-    <section id="services" className="relative py-24 sm:py-32">
+    <section id="services" className="relative py-7 sm:py-8 lg:py-10">
       <Container>
-        <MotionReveal>
-          <SceneHeader
-            description="Three areas of work, one standard: structured delivery with clear communication throughout."
-            eyebrow="Services"
-            title="Services"
-          />
-        </MotionReveal>
+        <div className="eryze-angle-frame eryze-scene-shell eryze-scene-muted rounded-[2rem] px-5 py-8 sm:px-8 sm:py-10">
+          <MotionReveal variant="line">
+            <SceneHeader
+              description="Clear service areas for businesses that need better digital structure, not vague agency packaging."
+              title="What Eryze helps build"
+            />
+          </MotionReveal>
 
-        <ContentGrid className="mt-10" variant="three">
-          {services.map((service, index) => (
-            <MotionReveal key={service.label} delay={index * 0.08}>
-              <article className="rounded-[1.5rem] border border-border bg-card p-6 shadow-[0_14px_40px_rgba(15,23,42,0.06)] transition-all duration-300 hover:-translate-y-1 hover:border-brand-accent/40 hover:shadow-[0_20px_46px_rgba(122,63,255,0.12)]">
-                <p className="text-sm font-medium uppercase tracking-[0.18em] text-brand-accent">{service.label}</p>
-                <h3 className="mt-4 font-display text-2xl leading-tight text-foreground sm:text-3xl">
-                  {service.title}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">
-                  {service.description}
-                </p>
-                <ul className="mt-6 space-y-3 text-sm leading-6 text-muted-foreground">
-                  {service.details.map((detail) => (
-                    <li key={detail} className="flex gap-3">
-                      <span className="mt-1 text-brand-accent">•</span>
-                      <span>{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            </MotionReveal>
-          ))}
-        </ContentGrid>
+          <ContentGrid className="mt-10" variant="three">
+            {services.map((service, index) => (
+              <MotionReveal key={service.label} delay={index * 0.08}>
+                <article className="eryze-angle-frame eryze-panel eryze-panel-feature flex h-full flex-col rounded-[1.6rem] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-accent/45 hover:shadow-[0_20px_46px_rgba(109,88,255,0.14)]">
+                  <div className="flex items-center justify-between gap-4">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-support">{service.label}</p>
+                    <span className="text-xs font-medium uppercase tracking-[0.24em] text-muted-foreground">
+                      0{index + 1}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 font-display text-2xl leading-tight text-foreground sm:text-3xl">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-muted-foreground sm:text-base">
+                    {service.description}
+                  </p>
+                  <div className="mt-auto pt-8">
+                    <p className="text-sm font-semibold uppercase tracking-[0.16em] text-foreground/88">
+                      {service.details[0]}
+                    </p>
+                  </div>
+                </article>
+              </MotionReveal>
+            ))}
+          </ContentGrid>
+        </div>
       </Container>
     </section>
   );
@@ -122,72 +105,95 @@ export function ServiceSequence({ services }: { services: HomeService[] }) {
 
 export function FeaturedProjectSequence({ projects }: { projects: Project[] }) {
   return (
-    <section id="work-preview" className="relative py-24 sm:py-32">
+    <section id="work-preview" className="relative py-7 sm:py-8 lg:py-10">
       <Container>
-        <MotionReveal>
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <SceneHeader
-              description="A selection of product, platform, and client work."
-              eyebrow="Featured projects"
-              title="Selected work"
-            />
-            <Link
-              className="inline-flex items-center text-sm font-semibold text-foreground transition-colors hover:text-brand-accent"
-              href="/work"
-            >
-              View all work
-              <span className="ml-2 text-base">→</span>
-            </Link>
-          </div>
-        </MotionReveal>
-      </Container>
+        <div className="eryze-angle-frame eryze-scene-shell eryze-scene-soft rounded-[2rem] px-5 py-8 sm:px-8 sm:py-10">
+          <MotionReveal variant="line">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <SceneHeader
+                description="A selection of digital systems where business needs, structure, and execution had to stay aligned."
+                title="Selected work"
+              />
+              <div className="flex flex-col gap-3 text-sm font-semibold sm:flex-row sm:flex-wrap sm:items-center">
+                <Link
+                  className="inline-flex items-center text-foreground transition-colors hover:text-brand-accent"
+                  href="/studio"
+                >
+                  Studio projects
+                  <span className="ml-2 text-base">→</span>
+                </Link>
+                <Link
+                  className="inline-flex items-center text-muted-foreground transition-colors hover:text-brand-accent"
+                  href="/labs"
+                >
+                  Product labs
+                  <span className="ml-2 text-base">→</span>
+                </Link>
+              </div>
+            </div>
+          </MotionReveal>
 
-      <div className="mt-14 border-y border-border/60">
-        {projects.map((project, index) => {
-          const reverse = index % 2 === 1;
+          <div className="mt-12 overflow-hidden rounded-[1.7rem] border border-border/50">
+            {projects.map((project, index) => {
+              const reverse = index % 2 === 1;
+              const projectPath = getProjectPath(project.slug);
 
-          return (
-            <MotionReveal key={project.slug} delay={index * 0.08}>
-              <article className="border-b border-border/60 last:border-b-0">
-                <Container>
-                  <div className="grid gap-10 py-12 sm:py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(19rem,0.95fr)] lg:gap-16 lg:items-center">
-                    <Link
-                      className={cn(
-                        "group/media relative block min-h-[18rem] overflow-hidden bg-secondary/40 sm:min-h-[22rem] lg:min-h-[27rem]",
-                        reverse ? "lg:order-2" : "",
-                      )}
-                      href={`/work/${project.slug}`}
-                    >
-                      <span
-                        aria-hidden
-                        className="absolute inset-0 bg-[rgba(5,11,22,0.14)] dark:bg-[rgba(5,11,22,0.2)]"
-                      />
-                      <span
-                        aria-hidden
-                        className="absolute left-6 top-6 h-20 w-20 rounded-full bg-brand-accent/12 blur-3xl"
-                      />
-                      <Image
-                        alt={`${project.title} project preview`}
-                        className="object-cover object-center transition-transform duration-700 ease-out group-hover/media:scale-[1.05]"
-                        fill
-                        sizes="(max-width: 1023px) 100vw, 58vw"
-                        src={`/work/${project.slug}.svg`}
-                      />
-                      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 px-6 pb-6">
-                        <p className="text-xs font-medium uppercase tracking-[0.24em] text-white/70">
-                          {String(index + 1).padStart(2, "0")} / {project.category}
-                        </p>
-                        <span className="text-lg text-white/80 transition-transform duration-300 group-hover/media:translate-x-1">
-                          ↗
-                        </span>
-                      </div>
+              return (
+                <MotionReveal key={project.slug} delay={index * 0.08} variant="soft">
+                  <article className="border-b border-border/45 bg-background/66 last:border-b-0 odd:bg-background/44 dark:bg-background/26 dark:odd:bg-background/38">
+                    <div className="grid gap-10 px-5 py-12 sm:px-6 sm:py-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(19rem,0.95fr)] lg:gap-16 lg:items-center">
+                      <Link
+                        className={cn(
+                          "eryze-angle-frame group/media relative block min-h-[18rem] overflow-hidden rounded-[1.6rem] border border-border/55 bg-secondary/40 sm:min-h-[22rem] lg:min-h-[27rem]",
+                          reverse ? "lg:order-2" : "",
+                        )}
+                        href={projectPath}
+                      >
+                        <span
+                          aria-hidden
+                          className="absolute inset-0 bg-[rgba(5,11,22,0.14)] dark:bg-[rgba(5,11,22,0.2)]"
+                        />
+                        <span
+                          aria-hidden
+                          className="absolute left-6 top-6 h-20 w-20 rounded-full bg-brand-accent/12 blur-3xl"
+                        />
+                        <span
+                          aria-hidden
+                          className="absolute inset-x-6 top-6 h-px bg-white/12"
+                        />
+                        <Image
+                          alt={`${project.title} project preview`}
+                          className="object-cover object-center transition-transform duration-700 ease-out group-hover/media:scale-[1.05]"
+                          fill
+                          sizes="(max-width: 1023px) 100vw, 58vw"
+                          src={`/work/${project.slug}.svg`}
+                        />
+                        <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 px-6 pb-6">
+                          <div className="space-y-2">
+                            <p className="text-xs font-medium uppercase tracking-[0.24em] text-white/70">
+                              {String(index + 1).padStart(2, "0")} / {project.category}
+                            </p>
+                            <p className="text-sm uppercase tracking-[0.22em] text-white/55">
+                              {project.status}
+                            </p>
+                          </div>
+                          <span className="h-11 w-11 rounded-full border border-white/12 bg-[rgba(5,11,22,0.56)] text-center text-lg leading-[2.65rem] text-white/85 transition-transform duration-300 group-hover/media:-translate-y-0.5 group-hover/media:translate-x-0.5">
+                            ↗
+                          </span>
+                        </div>
                       </Link>
 
-                    <div className={cn("max-w-xl", reverse ? "lg:order-1" : "")}>
-                      <p className="text-xs font-medium uppercase tracking-[0.24em] text-brand-accent">
-                        {project.status}
-                      </p>
-                      <h3 className="mt-4 font-display text-4xl leading-[0.95] text-foreground sm:text-5xl">
+                      <div className={cn("max-w-xl", reverse ? "lg:order-1" : "")}>
+                        <div className="flex items-center gap-4">
+                          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-brand-support">
+                            {project.status}
+                          </p>
+                          <span className="h-px w-14 bg-border/60" />
+                          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                            {project.category}
+                          </p>
+                        </div>
+                      <h3 className="mt-4 font-serif text-4xl leading-[0.94] tracking-[-0.04em] text-foreground sm:text-5xl">
                         {project.title}
                       </h3>
                       <p className="mt-4 text-lg leading-8 text-foreground/90">{project.tagline}</p>
@@ -195,103 +201,40 @@ export function FeaturedProjectSequence({ projects }: { projects: Project[] }) {
                         {project.hero.description}
                       </p>
 
-                      <ul className="mt-6 space-y-3 text-sm leading-7 text-muted-foreground">
-                        {project.solution.slice(0, 3).map((point) => (
-                          <li key={point} className="flex gap-3">
-                            <span className="mt-1 text-brand-accent">•</span>
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-
                       <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                        {project.tags.map((tag) => (
+                        {project.tags.slice(0, 3).map((tag) => (
                           <span key={`${project.slug}-${tag}`}>{tag}</span>
                         ))}
                       </div>
 
-                      <Link
-                        className="mt-8 inline-flex items-center text-sm font-semibold text-foreground transition-colors hover:text-brand-accent"
-                        href={`/work/${project.slug}`}
-                      >
-                        Read case study
-                        <span className="ml-2 text-base">→</span>
-                      </Link>
-                      {project.liveUrl ? (
-                        <a
-                          className="mt-4 inline-flex items-center text-sm font-semibold text-muted-foreground transition-colors hover:text-brand-accent"
-                          href={project.liveUrl}
-                          rel="noreferrer"
-                          target="_blank"
-                        >
-                          Visit live site
-                          <span className="ml-2 text-base">↗</span>
-                        </a>
-                      ) : null}
+                        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                          <Link
+                            className="inline-flex items-center text-sm font-semibold text-foreground transition-colors hover:text-brand-accent"
+                            href={projectPath}
+                          >
+                            Read case study
+                            <span className="ml-2 text-base">→</span>
+                          </Link>
+                          {project.liveUrl ? (
+                            <a
+                              className="inline-flex items-center text-sm font-semibold text-muted-foreground transition-colors hover:text-brand-accent"
+                              href={project.liveUrl}
+                              rel="noreferrer"
+                              target="_blank"
+                            >
+                              Visit live site
+                              <span className="ml-2 text-base">↗</span>
+                            </a>
+                          ) : null}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </Container>
-              </article>
-            </MotionReveal>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
-
-export function ProcessTimeline({ steps }: { steps: ProcessStep[] }) {
-  return (
-    <section id="process" className="relative py-24 sm:py-32">
-      <Container>
-        <MotionReveal>
-          <SceneHeader
-            description="A clear process means fewer surprises, faster decisions, and work that lands right the first time."
-            eyebrow="Process"
-            title="How the work is run"
-          />
-        </MotionReveal>
-
-        <MotionReveal delay={0.12} className="mt-16 hidden lg:block">
-          <div className="relative">
-            <span aria-hidden className="absolute left-0 right-0 top-4 h-px bg-border/60" />
-            <div className="grid grid-cols-4 gap-10">
-              {steps.map((step, index) => (
-                <div key={step.title} className="relative pt-12">
-                  <span
-                    aria-hidden
-                    className="absolute left-0 top-0 h-8 w-8 rounded-full border border-brand-accent/60 bg-background shadow-[0_0_22px_rgba(122,63,255,0.14)]"
-                  />
-                  <p className="text-xs font-medium uppercase tracking-[0.24em] text-brand-accent">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="mt-4 font-display text-2xl text-foreground">{step.title}</h3>
-                  <p className="mt-3 max-w-xs text-sm leading-7 text-muted-foreground">
-                    {step.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+                  </article>
+                </MotionReveal>
+              );
+            })}
           </div>
-        </MotionReveal>
-
-        <MotionReveal delay={0.12} className="mt-14 lg:hidden">
-          <div className="space-y-8 border-l border-border/60 pl-6">
-            {steps.map((step, index) => (
-              <div key={step.title} className="relative">
-                <span
-                  aria-hidden
-                  className="absolute -left-[2.05rem] top-1 h-5 w-5 rounded-full border border-brand-accent/60 bg-background shadow-[0_0_18px_rgba(122,63,255,0.14)]"
-                />
-                <p className="text-xs font-medium uppercase tracking-[0.24em] text-brand-accent">
-                  {String(index + 1).padStart(2, "0")}
-                </p>
-                <h3 className="mt-3 font-display text-2xl text-foreground">{step.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-muted-foreground">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </MotionReveal>
+        </div>
       </Container>
     </section>
   );
@@ -299,24 +242,22 @@ export function ProcessTimeline({ steps }: { steps: ProcessStep[] }) {
 
 export function FinalCTAScene() {
   return (
-    <section className="relative py-24 sm:py-32">
+    <section className="relative py-7 sm:py-8 lg:py-10">
       <Container>
-        <MotionReveal>
-          <div className="flex flex-col gap-8 border-y border-border/60 py-12 sm:py-16 lg:flex-row lg:items-end lg:justify-between">
+        <MotionReveal variant="line">
+          <div className="eryze-angle-frame eryze-scene-shell eryze-scene-strong flex flex-col gap-8 rounded-[2rem] px-5 py-12 sm:px-8 sm:py-16 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-brand-accent sm:text-sm">
-                Final CTA
-              </p>
-              <h2 className="mt-4 text-balance font-display text-4xl leading-[0.95] text-foreground sm:text-5xl lg:text-6xl">
-                Have a website, platform, or internal tool to build?
+              <p className="eryze-kicker">Start here</p>
+              <h2 className="text-balance font-serif text-4xl leading-[0.96] tracking-[-0.04em] text-foreground sm:text-5xl lg:text-6xl">
+                Need a digital system that feels clear from strategy through delivery?
               </h2>
               <p className="mt-5 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">
-                Working on a website, platform, or internal tool? Send a short brief with the key context. Eryze works best with clients who want clear ownership, reliable delivery, and a studio they don&apos;t have to chase.
+                Share the problem, the users, and what feels blocked. We can see whether Eryze is the right fit to structure and build it.
               </p>
             </div>
 
             <Button asChild size="lg">
-              <Link href="/contact">Start a project</Link>
+              <Link href="/contact">Share a brief</Link>
             </Button>
           </div>
         </MotionReveal>

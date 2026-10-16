@@ -1,65 +1,113 @@
+import { JsonLd } from "@/components/seo/json-ld";
 import { CTABlock } from "@/components/site/cta-block";
-import { ContentGrid } from "@/components/site/content-grid";
+import { HoverSignalLink } from "@/components/site/eryze-motion";
 import { PageHero } from "@/components/site/page-hero";
-import { PrincipleCard } from "@/components/site/principle-card";
 import { Section } from "@/components/site/section";
 import { founderCredentials, founderProfile, workingPrinciples } from "@/content/site";
 import { createPageMetadata } from "@/lib/metadata";
+import {
+  getAboutStructuredData,
+  getBreadcrumbStructuredData,
+  getPageStructuredData,
+} from "@/lib/structured-data";
 
 export const metadata = createPageMetadata({
   title: "About",
   description:
-    "About Eryze Studio and founder Anastasia Yakimovska, combining engineering, product thinking, startup execution, and cross-sector digital delivery.",
+    "About Eryze Studio and founder Anastasia Yakimovska, combining engineering, product thinking, and cross-sector digital delivery with a calm, collaborative working model.",
   path: "/about",
 });
 
 export default function AboutPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          getPageStructuredData({
+            title: "About",
+            description:
+              "About Eryze Studio and founder Anastasia Yakimovska, combining engineering, product thinking, and cross-sector digital delivery with a calm, collaborative working model.",
+            path: "/about",
+            pageType: "AboutPage",
+          }),
+          getBreadcrumbStructuredData([
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+          ]),
+          getAboutStructuredData(),
+        ]}
+      />
+
       <PageHero
         actions={[{ href: "/contact", label: "Get in touch" }]}
-        description="Engineering, product thinking, and founder-level execution in one working model."
+        description="Engineering judgment, product thinking, and close collaboration from first idea to working system."
         eyebrow="About"
         highlights={[
           "Engineering and automation background",
           "Startup and product execution experience",
-          "Founder-led collaboration without extra layers",
+          "Direct collaboration without unnecessary layers",
         ]}
-        title="Founder-led studio work grounded in engineering and product judgment."
+        title="Close to the idea. Close to the build."
       >
-        <div className="w-full rounded-[1.75rem] border border-border bg-background/70 p-5">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-brand-accent">Core lens</p>
-          <p className="mt-4 font-display text-3xl text-foreground">Build what is credible now and extensible later.</p>
+        <div className="eryze-angle-frame eryze-panel eryze-panel-feature w-full rounded-[1.75rem] p-5">
+          <p className="eryze-kicker">Core lens</p>
+          <p className="mt-4 font-serif text-3xl leading-[1.04] tracking-[-0.04em] text-foreground">
+            Turning ambition into a digital system built for real use.
+          </p>
           <p className="mt-3 text-sm leading-6 text-muted-foreground">
-            The studio approach balances public-facing clarity with the operational reality behind the product.
+            Eryze brings the visible experience and the operational reality behind it into the same frame.
           </p>
         </div>
       </PageHero>
 
       <Section
-        description="A concise view of the founder behind the studio."
+        description="Anastasia brings engineering depth, founder experience, and product judgment to every engagement."
         eyebrow="Founder"
         title={founderProfile.name}
       >
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)]">
-          <article className="rounded-[1.75rem] border border-border bg-card p-8 shadow-[0_18px_60px_rgba(15,23,42,0.08)]">
-            <h3 className="font-display text-3xl text-foreground">{founderProfile.role}</h3>
-            <p className="mt-4 text-sm leading-6 text-muted-foreground sm:text-base">{founderProfile.intro}</p>
-            <ul className="mt-5 space-y-3 text-sm leading-6 text-muted-foreground sm:text-base">
-              {founderProfile.summary.map((point) => (
-                <li key={point} className="flex gap-3">
-                  <span className="text-brand-accent">•</span>
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
+        <div className="divide-y divide-border/45">
+          <article className="grid gap-6 py-6 first:pt-0 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-10">
+            <div>
+              <p className="eryze-kicker">Role</p>
+              <h3 className="mt-4 text-balance font-serif text-[clamp(1.9rem,2.8vw,3.2rem)] leading-[0.98] tracking-[-0.04em] text-foreground">
+                {founderProfile.role}
+              </h3>
+            </div>
+            <div className="border-t border-border/45 pt-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+              <p className="text-base leading-8 text-muted-foreground">{founderProfile.intro}</p>
+            </div>
           </article>
 
-          <article className="rounded-[1.75rem] border border-border bg-card p-8">
-            <p className="text-sm font-medium uppercase tracking-[0.18em] text-brand-accent">Working stance</p>
-            <p className="mt-4 text-base leading-7 text-muted-foreground">
-              The studio is intentionally compact, which keeps the work close to business goals, delivery tradeoffs, and the actual constraints behind each project.
-            </p>
+          {founderProfile.summary.map((point, index) => (
+            <article
+              key={point}
+              className="grid gap-6 py-6 lg:grid-cols-[minmax(0,0.22fr)_minmax(0,1.78fr)] lg:gap-10"
+            >
+              <div>
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-support">
+                  0{index + 1}
+                </p>
+              </div>
+              <div className="border-t border-border/45 pt-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+                <p className="text-sm leading-7 text-foreground/88">{point}</p>
+              </div>
+            </article>
+          ))}
+
+          <article className="grid gap-6 py-6 last:pb-0 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-10">
+            <div>
+              <p className="eryze-kicker">Beyond the studio</p>
+            </div>
+            <div className="border-t border-border/45 pt-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+              <p className="text-sm leading-7 text-muted-foreground">
+                The portfolio brings together product and project case studies, shorter experiments, methods, and experience beyond client delivery.
+              </p>
+              <div className="mt-5">
+                <HoverSignalLink href="/portfolio" intensity={0.42} opacity={0.62} speed={1}>
+                  Open portfolio
+                </HoverSignalLink>
+              </div>
+            </div>
           </article>
         </div>
       </Section>
@@ -69,38 +117,62 @@ export default function AboutPage() {
         eyebrow="Background"
         title="Experience that shapes the work"
       >
-        <ContentGrid variant="two">
+        <div className="divide-y divide-border/45">
           {founderCredentials.map((credential) => (
-            <article key={credential.title} className="rounded-[1.5rem] border border-border bg-card p-6">
-              <p className="text-sm font-medium uppercase tracking-[0.18em] text-brand-accent">{credential.label}</p>
-              <h3 className="mt-3 font-display text-2xl text-foreground">{credential.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-muted-foreground">{credential.description}</p>
+            <article
+              key={credential.title}
+              className="grid gap-6 py-6 first:pt-0 last:pb-0 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-10"
+            >
+              <div>
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-support">
+                  {credential.label}
+                </p>
+                <h3 className="mt-4 text-balance font-serif text-[clamp(1.55rem,2.1vw,2.35rem)] leading-[1] tracking-[-0.04em] text-foreground">
+                  {credential.title}
+                </h3>
+              </div>
+              <div className="border-t border-border/45 pt-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+                <p className="text-sm leading-7 text-muted-foreground">{credential.description}</p>
+              </div>
             </article>
           ))}
-        </ContentGrid>
+        </div>
       </Section>
 
       <Section
-        description="These principles guide what gets built now and what stays out of scope."
+        description="A few convictions keep the work focused, useful, and honest."
         eyebrow="Philosophy"
         title="Working principles"
       >
-        <ContentGrid variant="four">
-          {workingPrinciples.map((principle) => (
-            <PrincipleCard
+        <div className="divide-y divide-border/45">
+          {workingPrinciples.map((principle, index) => (
+            <article
               key={principle.title}
-              description={principle.description}
-              title={principle.title}
-            />
+              className="grid gap-6 py-6 first:pt-0 last:pb-0 lg:grid-cols-[minmax(0,0.18fr)_minmax(0,0.62fr)_minmax(0,1.2fr)] lg:gap-10"
+            >
+              <div>
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-support">
+                  0{index + 1}
+                </p>
+              </div>
+              <div>
+                <h3 className="text-balance font-serif text-[clamp(1.45rem,1.9vw,2.1rem)] leading-[1] tracking-[-0.04em] text-foreground">
+                  {principle.title}
+                </h3>
+              </div>
+              <div className="border-t border-border/45 pt-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+                <p className="text-sm leading-7 text-muted-foreground">{principle.description}</p>
+              </div>
+            </article>
           ))}
-        </ContentGrid>
+        </div>
       </Section>
 
       <CTABlock
-        description="If the way the studio works matches what you need, the easiest next step is a short note about the product, workflow, or platform you are trying to shape."
+        description="Bring the product, workflow, or platform you want to move forward."
         primaryAction={{ href: "/contact", label: "Start a conversation" }}
-        secondaryAction={{ href: "/work", label: "Review work" }}
-        title="Need a technical partner who can stay close to the product?"
+        secondaryAction={{ href: "/portfolio", label: "View portfolio" }}
+        title="Looking for a partner who understands both the product and the build?"
       />
     </>
   );

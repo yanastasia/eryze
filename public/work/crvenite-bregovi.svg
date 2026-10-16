@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Crvenite Bregovi project artwork</title>
+  <desc id="desc">An editorial landscape in deep red, cream, and charcoal.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17100f"/>
+      <stop offset="0.62" stop-color="#55201d"/>
+      <stop offset="1" stop-color="#a84332"/>
+    </linearGradient>
+    <linearGradient id="ridge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bd5038"/>
+      <stop offset="1" stop-color="#581a18"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <circle cx="1190" cy="255" r="125" fill="#f0d9b7" opacity=".93"/>
+  <path d="M0 680 260 540 470 630 760 410 990 610 1240 480 1600 655V1000H0Z" fill="#1b1212" opacity=".83"/>
+  <path d="M0 770 330 630 620 755 930 575 1200 720 1430 620 1600 700V1000H0Z" fill="url(#ridge)"/>
+  <path d="M0 855 330 730 610 830 900 700 1220 830 1600 720V1000H0Z" fill="#160d0d"/>
+  <g fill="#f8ead3">
+    <text x="105" y="140" font-family="Georgia, serif" font-size="30" letter-spacing="8">САГА ЗА</text>
+    <text x="100" y="235" font-family="Georgia, serif" font-size="82">ЦРВЕНИТЕ</text>
+    <text x="100" y="325" font-family="Georgia, serif" font-size="82">БРЕГОВИ</text>
+  </g>
+  <text x="108" y="382" fill="#e0b18b" font-family="Arial, sans-serif" font-size="23" letter-spacing="5">КНИГА I · КОРЕНОТ</text>
+  <line x1="108" y1="430" x2="440" y2="430" stroke="#e0b18b" stroke-width="2"/>
+  <text x="108" y="475" fill="#f8ead3" font-family="Arial, sans-serif" font-size="20" letter-spacing="3">МИЛЕ Т. ЈАКИМОВСКИ</text>
+</svg>

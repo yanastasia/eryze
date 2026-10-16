@@ -312,6 +312,83 @@ export const projects: Project[] = [
       "Editorial clarity matters as much as interface polish",
     ],
   },
+  {
+    slug: "crvenite-bregovi",
+    title: "Crvenite Bregovi",
+    tagline: "Book launch, pre-order, and order management for an independent author",
+    tags: ["Publishing", "Commerce", "Admin System"],
+    status: "Completed",
+    category: "Client",
+    liveUrl: "https://crvenitebregovi.site",
+    featured: true,
+    order: 5,
+    hero: {
+      description: "A digital launch home for Saga of the Red Banks, Book I: The Root",
+    },
+    overview: {
+      who: "Independent author and readers",
+      what: "Launch website with pre-orders and an author-facing order workflow",
+      role: "Product design, full-stack development, and deployment",
+    },
+    problem: [
+      "The book needed a distinctive launch presence beyond social media",
+      "Pre-orders required a clear reader journey and dependable order capture",
+      "The author needed direct visibility into incoming orders",
+    ],
+    goal: [
+      "Introduce the world and tone of the book with a focused digital experience",
+      "Make pre-ordering direct and easy to understand",
+      "Give the author a practical way to manage demand",
+    ],
+    solution: [
+      "Created an immersive editorial website around the book's identity",
+      "Built the pre-order flow and structured order capture",
+      "Delivered an administration surface for reviewing and managing orders",
+    ],
+    built: [
+      {
+        title: "Launch Experience",
+        points: [
+          "Story-led presentation for the book and author",
+          "Responsive reading and discovery experience",
+          "Macedonian-language content and metadata",
+        ],
+      },
+      {
+        title: "Pre-order Flow",
+        points: [
+          "Focused conversion path from story to order",
+          "Structured reader details and order capture",
+          "Clear confirmation and follow-through",
+        ],
+      },
+      {
+        title: "Author Operations",
+        points: [
+          "Order overview for the author",
+          "Practical administration workflow",
+          "Cloud-hosted production delivery",
+        ],
+      },
+    ],
+    tech: {
+      stack: ["Next.js", "TypeScript", "Cloudflare"],
+      notes: [
+        "Editorial design carries the atmosphere of the book",
+        "The operational layer stays simple for a solo author",
+      ],
+    },
+    outcome: [
+      "Launched a dedicated public home for the first book",
+      "Connected promotion directly to pre-order intent",
+      "Gave the author ownership of the incoming order workflow",
+    ],
+    learnings: [
+      "A literary product needs atmosphere without losing clarity",
+      "Small operational systems benefit from deliberate simplicity",
+      "Launch storytelling and conversion can share one focused journey",
+    ],
+  },
 ];
 
 export const sortedProjects = [...projects].sort((left, right) => {
@@ -327,6 +404,35 @@ export const sortedProjects = [...projects].sort((left, right) => {
 export const featuredProjects = sortedProjects.filter((project) => project.featured);
 
 export const workFilterTags = ["Client", "Product", "Platform", "Bookings", "Bilingual UX"] as const;
+
+const studioProjectSlugSet = new Set(["acting-europe", "pautalia", "crvenite-bregovi"]);
+const labProjectSlugSet = new Set(["kidsgo", "livrea"]);
+
+export const studioProjects = sortedProjects.filter((project) => studioProjectSlugSet.has(project.slug));
+
+export const labProjects = sortedProjects.filter((project) => labProjectSlugSet.has(project.slug));
+
+export function getProjectCollectionBySlug(slug: string) {
+  if (studioProjectSlugSet.has(slug)) {
+    return "studio" as const;
+  }
+
+  if (labProjectSlugSet.has(slug)) {
+    return "labs" as const;
+  }
+
+  return null;
+}
+
+export function getProjectPath(slug: string) {
+  const collection = getProjectCollectionBySlug(slug);
+
+  if (!collection) {
+    return `/work/${slug}`;
+  }
+
+  return `/${collection}/${slug}`;
+}
 
 export function getProjectBySlug(slug: string) {
   return projects.find((project) => project.slug === slug);

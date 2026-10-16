@@ -6,12 +6,14 @@ type BuiltBlockProps = {
 
 export function BuiltBlock({ block }: BuiltBlockProps) {
   return (
-    <article className="border border-border bg-card p-6">
-      <h3 className="font-display text-xl text-foreground sm:text-2xl">{block.title}</h3>
-      <ul className="mt-4 space-y-3 text-sm leading-6 text-muted-foreground">
+    <article className="overflow-hidden rounded-[1.55rem] border border-border/65 bg-[rgba(8,15,28,0.74)] px-5 py-6 sm:px-6 sm:py-7">
+      <h3 className="text-balance font-serif text-[clamp(1.4rem,2vw,2rem)] leading-[1] tracking-[-0.04em] text-foreground">
+        {block.title}
+      </h3>
+      <ul className="mt-5 space-y-4 text-sm leading-7 text-muted-foreground sm:text-base">
         {block.points.map((point) => (
-          <li key={point} className="flex gap-3">
-            <span className="text-brand-accent">•</span>
+          <li key={point} className="grid gap-3 md:grid-cols-[auto_1fr]">
+            <span className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-brand-support">Built</span>
             <span>{point}</span>
           </li>
         ))}

@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-import type { Project } from "@/types/project";
 import { ProjectCard } from "@/components/site/project-card";
 import { cn } from "@/lib/utils";
+import type { Project } from "@/types/project";
 
 type ProjectGridProps = {
   activeTag?: string;
@@ -28,10 +28,10 @@ export function ProjectGrid({
         >
           <Link
             className={cn(
-              "inline-flex shrink-0 rounded-full border px-4 py-2.5 text-sm font-medium transition-colors",
+              "inline-flex shrink-0 rounded-full border px-4 py-2.5 text-[0.74rem] font-semibold uppercase tracking-[0.16em] transition-colors",
               !activeTag
-                ? "border-foreground bg-foreground text-background"
-                : "border-border bg-card text-muted-foreground hover:text-foreground",
+                ? "border-brand-accent/55 bg-brand-accent/12 text-foreground"
+                : "border-border bg-transparent text-muted-foreground hover:border-brand-accent/40 hover:text-foreground",
             )}
             href={basePath}
           >
@@ -45,10 +45,10 @@ export function ProjectGrid({
               <Link
                 key={tag}
                 className={cn(
-                  "inline-flex shrink-0 rounded-full border px-4 py-2.5 text-sm font-medium transition-colors",
+                  "inline-flex shrink-0 rounded-full border px-4 py-2.5 text-[0.74rem] font-semibold uppercase tracking-[0.16em] transition-colors",
                   isActive
-                    ? "border-foreground bg-foreground text-background"
-                    : "border-border bg-card text-muted-foreground hover:text-foreground",
+                    ? "border-brand-accent/55 bg-brand-accent/12 text-foreground"
+                    : "border-border bg-transparent text-muted-foreground hover:border-brand-accent/40 hover:text-foreground",
                 )}
                 href={href}
               >
@@ -60,9 +60,9 @@ export function ProjectGrid({
       ) : null}
 
       {projects.length ? (
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+        <div className="space-y-6">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.slug} project={project} reverse={index % 2 === 1} />
           ))}
         </div>
       ) : (
