@@ -39,7 +39,7 @@ export function PageHero({
           <div className={cn("grid gap-12 xl:grid-cols-[minmax(0,1.2fr)_minmax(20rem,0.65fr)] xl:items-end", !children ? "xl:grid-cols-1" : "")}>
             <div className="max-w-5xl">
               {eyebrow ? <p className="eryze-kicker">{eyebrow}</p> : null}
-              <h1 className="mt-8 max-w-[13ch] text-balance font-display text-[clamp(4rem,9vw,8.5rem)] font-normal leading-[0.87] tracking-[-0.035em] text-foreground">
+              <h1 className="mt-8 max-w-[15ch] text-balance font-display text-[clamp(3.1rem,6.2vw,6.25rem)] font-normal leading-[0.92] tracking-[-0.035em] text-foreground">
                 {title}
               </h1>
               <p className="mt-8 max-w-[42rem] font-serif text-[1.08rem] leading-8 text-muted-foreground sm:text-[1.2rem]">

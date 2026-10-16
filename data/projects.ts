@@ -315,7 +315,7 @@ export const projects: Project[] = [
   {
     slug: "crvenite-bregovi",
     title: "Crvenite Bregovi",
-    tagline: "Book launch, pre-order, and order management for an independent author",
+    tagline: "Book launch, reader orders, and order management for an independent author",
     tags: ["Publishing", "Commerce", "Admin System"],
     status: "Completed",
     category: "Client",
@@ -327,22 +327,22 @@ export const projects: Project[] = [
     },
     overview: {
       who: "Independent author and readers",
-      what: "Launch website with pre-orders and an author-facing order workflow",
+      what: "Launch website with reader ordering and an author-facing order workflow",
       role: "Product design, full-stack development, and deployment",
     },
     problem: [
       "The book needed a distinctive launch presence beyond social media",
-      "Pre-orders required a clear reader journey and dependable order capture",
+      "Orders required a clear reader journey and dependable information capture",
       "The author needed direct visibility into incoming orders",
     ],
     goal: [
       "Introduce the world and tone of the book with a focused digital experience",
-      "Make pre-ordering direct and easy to understand",
+      "Make ordering direct and easy to understand",
       "Give the author a practical way to manage demand",
     ],
     solution: [
       "Created an immersive editorial website around the book's identity",
-      "Built the pre-order flow and structured order capture",
+      "Built the order flow and structured information capture",
       "Delivered an administration surface for reviewing and managing orders",
     ],
     built: [
@@ -355,7 +355,7 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: "Pre-order Flow",
+        title: "Order Flow",
         points: [
           "Focused conversion path from story to order",
           "Structured reader details and order capture",
